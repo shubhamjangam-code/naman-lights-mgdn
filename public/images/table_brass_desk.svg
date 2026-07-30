@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e1e24" />
+      <stop offset="100%" stop-color="#0b0b0e" />
+    </radialGradient>
+    
+    <!-- Gold Metallic Gradients -->
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e0aa" />
+      <stop offset="30%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#aa820a" />
+      <stop offset="100%" stop-color="#664d00" />
+    </linearGradient>
+    
+    <linearGradient id="brassHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e7" />
+      <stop offset="50%" stop-color="#c5a059" />
+      <stop offset="100%" stop-color="#8a6d29" />
+    </linearGradient>
+
+    <!-- Warm Light Glow Gradients -->
+    <radialGradient id="lampGlow" cx="45%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#fffae6" stop-opacity="1" />
+      <stop offset="25%" stop-color="#ffdf7a" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#d4af37" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="lightBeam" x1="45%" y1="25%" x2="35%" y2="90%">
+      <stop offset="0%" stop-color="#ffe89c" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#ffb700" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Surface Reflection -->
+    <linearGradient id="tableSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#19171b" />
+      <stop offset="100%" stop-color="#09080a" />
+    </linearGradient>
+
+    <!-- Drop Shadow -->
+    <filter id="blurShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" />
+    </filter>
+  </defs>
+
+  <!-- Background Environment -->
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+
+  <!-- Wooden/Marble Desk Surface -->
+  <rect x="0" y="460" width="800" height="140" fill="url(#tableSurface)" />
+  <line x1="0" y1="460" x2="800" y2="460" stroke="#332d38" stroke-width="2" />
+
+  <!-- Light Beam cast on table -->
+  <polygon points="340,190 120,490 620,490 420,190" fill="url(#lightBeam)" />
+  <ellipse cx="370" cy="490" rx="240" ry="40" fill="url(#lampGlow)" opacity="0.7" />
+
+  <!-- Base Shadow -->
+  <ellipse cx="370" cy="470" rx="90" ry="18" fill="#000000" opacity="0.8" filter="url(#blurShadow)" />
+
+  <!-- Lamp Base (Solid Machined Brass Disc) -->
+  <ellipse cx="370" cy="470" rx="85" ry="16" fill="url(#brassGrad)" stroke="#553f05" stroke-width="1" />
+  <path d="M 285 460 C 285 460 285 470 370 470 C 455 470 455 460 455 460 L 455 452 C 455 452 455 444 370 444 C 285 444 285 452 285 452 Z" fill="url(#brassHighlight)" />
+  <ellipse cx="370" cy="445" rx="85" ry="15" fill="url(#brassGrad)" />
+
+  <!-- Vertical Stem (Sculptural Curved Brass Rod) -->
+  <!-- Main Stem -->
+  <path d="M 370 445 C 370 320 460 250 430 170 C 420 140 380 140 340 160" 
+        fill="none" stroke="url(#brassHighlight)" stroke-width="18" stroke-linecap="round" />
+  <path d="M 370 445 C 370 320 460 250 430 170 C 420 140 380 140 340 160" 
+        fill="none" stroke="url(#brassGrad)" stroke-width="12" stroke-linecap="round" />
+
+  <!-- Brass Joint Accents -->
+  <circle cx="370" cy="445" r="14" fill="url(#brassHighlight)" />
+
+  <!-- Adjustable Optical Hood (Aethelgard Brass Shade) -->
+  <!-- Shadow under hood -->
+  <ellipse cx="350" cy="180" rx="75" ry="25" fill="#000" opacity="0.4" filter="url(#blurShadow)" />
+
+  <!-- Inner Reflector Glow -->
+  <ellipse cx="350" cy="182" rx="70" ry="20" fill="#fff5cc" />
+  <ellipse cx="350" cy="182" rx="65" ry="16" fill="#ffe066" />
+  <ellipse cx="350" cy="182" rx="50" ry="10" fill="#ffffff" />
+
+  <!-- Outer Metallic Hood Frame -->
+  <path d="M 270 175 C 270 120 430 120 430 175 C 430 185 270 185 270 175 Z" fill="url(#brassGrad)" stroke="#aa820a" stroke-width="2" />
+  <path d="M 275 170 C 310 135 390 135 425 170" fill="none" stroke="#fff8e7" stroke-width="4" opacity="0.7" />
+
+  <!-- Ambient Light Glow Bulb Core -->
+  <circle cx="350" cy="180" r="16" fill="#ffffff" />
+  <circle cx="350" cy="180" r="45" fill="url(#lampGlow)" />
+
+  <!-- Floating Specification Badge overlay effect -->
+  <rect x="550" y="40" width="210" height="40" rx="8" fill="rgba(15, 23, 42, 0.75)" stroke="var(--color-border-gold, #c5a059)" stroke-width="1" />
+  <text x="565" y="65" fill="#d4af37" font-family="sans-serif" font-size="13" font-weight="bold">LUXURY BRASS DESK LAMP</text>
+</svg>

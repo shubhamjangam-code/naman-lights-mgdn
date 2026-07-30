@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Dark Studio Background -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#242129" />
+      <stop offset="100%" stop-color="#0c0a0e" />
+    </radialGradient>
+
+    <!-- Terrazzo Base Pattern -->
+    <pattern id="terrazzoPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="#f4f0ea" />
+      <!-- Terrazzo chips -->
+      <polygon points="5,8 15,4 12,18" fill="#d97706" />
+      <polygon points="35,12 48,15 42,28" fill="#1e293b" />
+      <polygon points="20,40 32,45 25,55" fill="#94a3b8" />
+      <polygon points="45,42 55,52 58,38" fill="#b91c1c" />
+      <circle cx="10" cy="32" r="4" fill="#047857" />
+      <circle cx="50" cy="8" r="3" fill="#b45309" />
+    </pattern>
+
+    <!-- Base Cylindrical Shading -->
+    <linearGradient id="baseShade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.35" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.2" />
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Opal Glass Sphere Radiant Glow -->
+    <radialGradient id="opalGlobeGlow" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#fff5db" />
+      <stop offset="70%" stop-color="#ffd480" />
+      <stop offset="95%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.8" />
+    </radialGradient>
+
+    <radialGradient id="ambientSphereHalo" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffecb3" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#ffc107" stop-opacity="0.4" />
+      <stop offset="80%" stop-color="#ff9800" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Brass Stem Collar Accent -->
+    <linearGradient id="brassCollar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#aa820a" />
+      <stop offset="50%" stop-color="#fff0b3" />
+      <stop offset="100%" stop-color="#664d00" />
+    </linearGradient>
+
+    <filter id="blurHalo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="25" />
+    </filter>
+    
+    <filter id="blurShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" />
+    </filter>
+  </defs>
+
+  <!-- Background Environment -->
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+
+  <!-- Wooden Surface -->
+  <rect x="0" y="470" width="800" height="130" fill="#141118" />
+  <line x1="0" y1="470" x2="800" y2="470" stroke="#2d2835" stroke-width="2" />
+
+  <!-- Huge Ambient Glow Field behind the lamp -->
+  <circle cx="400" cy="230" r="260" fill="url(#ambientSphereHalo)" filter="url(#blurHalo)" />
+
+  <!-- Base Drop Shadow -->
+  <ellipse cx="400" cy="480" rx="100" ry="20" fill="#000000" opacity="0.85" filter="url(#blurShadow)" />
+
+  <!-- Custom Italian Terrazzo Cylinder Base -->
+  <!-- Main Cylinder Body -->
+  <rect x="310" y="320" width="180" height="150" fill="url(#terrazzoPattern)" rx="4" />
+  <rect x="310" y="320" width="180" height="150" fill="url(#baseShade)" rx="4" />
+
+  <!-- Base Top Cap Ellipse -->
+  <ellipse cx="400" cy="320" rx="90" ry="16" fill="url(#terrazzoPattern)" />
+  <ellipse cx="400" cy="320" rx="90" ry="16" fill="url(#baseShade)" opacity="0.6" />
+
+  <!-- Base Bottom Ellipse Rim -->
+  <ellipse cx="400" cy="470" rx="90" ry="16" fill="#1e1e24" />
+
+  <!-- Polished Brass Collar Ring -->
+  <rect x="375" y="302" width="50" height="18" rx="3" fill="url(#brassCollar)" />
+  <ellipse cx="400" cy="302" rx="25" ry="5" fill="#fff5cc" />
+
+  <!-- Frosted Opal Glass Sphere (Glow Core) -->
+  <!-- Outer Glow Aura -->
+  <circle cx="400" cy="190" r="125" fill="url(#ambientSphereHalo)" />
+
+  <!-- Hand-Blown Opal Sphere -->
+  <circle cx="400" cy="190" r="115" fill="url(#opalGlobeGlow)" />
+  
+  <!-- Soft Inner Reflection Highlight -->
+  <ellipse cx="370" cy="150" rx="35" ry="20" fill="#ffffff" opacity="0.6" transform="rotate(-20 370 150)" />
+  <circle cx="360" cy="140" r="10" fill="#ffffff" opacity="0.8" />
+
+  <!-- Specification Badge Overlay -->
+  <rect x="530" y="40" width="230" height="40" rx="8" fill="rgba(15, 23, 42, 0.75)" stroke="var(--color-border-gold, #c5a059)" stroke-width="1" />
+  <text x="545" y="65" fill="#f59e0b" font-family="sans-serif" font-size="13" font-weight="bold">OPAL GLOBE TERRAZZO LAMP</text>
+</svg>
