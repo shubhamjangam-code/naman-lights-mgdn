@@ -350,6 +350,138 @@ export const PRODUCTS = [
       power: "8W E27 LED",
       dimensions: "Ø 280mm Shade × H 480mm"
     }
+  },
+  {
+    id: "dk-001",
+    name: "Celestia Bloom 2-Tier Chandelier",
+    category: "chandeliers",
+    price: 42500,
+    priceFormatted: "₹42,500",
+    tagline: "Flower-inspired asymmetrical brass tier with organic glass petals.",
+    description: "Sculptural double-tier chandelier featuring handcrafted satin brass arms and delicate frosted glass petals. Emits a soft, warm ambient glow ideal for luxury dining rooms and foyers.",
+    image: "/images/dk_celestia_bloom.png",
+    rating: 4.9,
+    reviewsCount: 36,
+    isFeatured: true,
+    specs: {
+      lumens: "5,400 lm",
+      cri: "> 96 CRI",
+      kelvin: "2700K",
+      material: "Satin Brass & Frosted Opal Glass Petals",
+      dimming: "DALI-2 / TRIAC / 0-10V",
+      power: "56W",
+      dimensions: "Ø 850mm × H 650mm"
+    }
+  },
+  {
+    id: "dk-002",
+    name: "Stellar Spoke Sculptural LED Chandelier",
+    category: "chandeliers",
+    price: 38900,
+    priceFormatted: "₹38,900",
+    tagline: "Radial matte-black metal rods with glowing LED spoke diffusers.",
+    description: "An architectural starburst luminaire. Engineered with industrial matte-black steel spokes and high-CRI linear diffusers that illuminate large living areas without glare.",
+    image: "/images/dk_stellar_spoke.png",
+    rating: 4.8,
+    reviewsCount: 29,
+    isFeatured: true,
+    specs: {
+      lumens: "4,600 lm",
+      cri: "> 95 CRI",
+      kelvin: "3000K",
+      material: "Matte Black Steel & Optical Acrylic Diffusers",
+      dimming: "Phase-Cut Dimmable",
+      power: "48W",
+      dimensions: "Ø 950mm × H 420mm"
+    }
+  },
+  {
+    id: "dk-003",
+    name: "Lumiere Cascade Gold Chandelier",
+    category: "chandeliers",
+    price: 54000,
+    priceFormatted: "₹54,000",
+    tagline: "Cascading hand-blown amber glass droplets on satin gold frame.",
+    description: "A dramatic multi-drop luxury chandelier featuring staggered hand-blown amber glass teardrops. Designed to anchor double-height staircases and high-ceiling villas.",
+    image: "/images/dk_lumiere_cascade.png",
+    rating: 5.0,
+    reviewsCount: 41,
+    isFeatured: true,
+    specs: {
+      lumens: "6,800 lm",
+      cri: "> 97 CRI",
+      kelvin: "2500K - 2700K",
+      material: "Hand-Blown Amber Glass & Electroplated Gold Canopy",
+      dimming: "TRIAC / Smart Remote Dimmable",
+      power: "75W",
+      dimensions: "Ø 700mm × H 1200mm"
+    }
+  },
+  {
+    id: "dk-004",
+    name: "French Floral Brass & Crystal Chandelier",
+    category: "chandeliers",
+    price: 46800,
+    priceFormatted: "₹46,800",
+    tagline: "Vintage French brass floral arms with hand-cut K9 crystal droplets.",
+    description: "Classic Parisian elegance recreated with sculpted brass leaf vines and hand-faceted K9 crystal prisms. Holds candle-style warm LED filament bulbs.",
+    image: "/images/dk_french_floral.png",
+    rating: 4.9,
+    reviewsCount: 27,
+    isFeatured: false,
+    specs: {
+      lumens: "5,100 lm",
+      cri: "> 94 CRI",
+      kelvin: "2700K",
+      material: "Antique Gilded Brass & K9 Crystal Prisms",
+      dimming: "Wall Phase Dimmer Compatible",
+      power: "52W (6 × E14 Filament)",
+      dimensions: "Ø 780mm × H 580mm"
+    }
+  },
+  {
+    id: "dk-005",
+    name: "Elysian Wave Amber Glass Chandelier",
+    category: "chandeliers",
+    price: 39500,
+    priceFormatted: "₹39,500",
+    tagline: "Curved golden wave structure with ribbed amber glass globes.",
+    description: "Fluid organic ribbon frame crafted in warm brushed gold, carrying ribbed amber glass spheres. Provides balanced, anti-glare illumination across long dining setups.",
+    image: "/images/dk_elysian_wave.png",
+    rating: 4.8,
+    reviewsCount: 22,
+    isFeatured: false,
+    specs: {
+      lumens: "4,200 lm",
+      cri: "> 93 CRI",
+      kelvin: "2700K",
+      material: "Brushed Gold Alloy & Ribbed Amber Glass",
+      dimming: "TRIAC Dimmable",
+      power: "42W",
+      dimensions: "L 1100mm × W 450mm × H 380mm"
+    }
+  },
+  {
+    id: "dk-006",
+    name: "Palais Versailles Grand Crystal Chandelier",
+    category: "chandeliers",
+    price: 68500,
+    priceFormatted: "₹68,500",
+    tagline: "Classic 3-tier Versailles crystal chandelier with candle-style warm LED.",
+    description: "An opulent statement piece modeled after French palace heritage. Crafted with 24K gold-gilded scrollwork, multi-tier crystal bails, and high-CRI candlelight ambiance.",
+    image: "/images/dk_palais_versailles.png",
+    rating: 5.0,
+    reviewsCount: 48,
+    isFeatured: true,
+    specs: {
+      lumens: "8,900 lm",
+      cri: "> 98 CRI",
+      kelvin: "2700K",
+      material: "24K Gold Plated Steel & Hand-Cut Imperial Crystal",
+      dimming: "DALI-2 / Phase-Cut Dimming",
+      power: "90W",
+      dimensions: "Ø 1050mm × H 1150mm"
+    }
   }
 ];
 

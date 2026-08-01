@@ -14,7 +14,6 @@ const InstagramIcon = ({ size = 12, color = "#e1306c" }) => (
 export default function Header({ 
   cartCount, 
   onOpenCart, 
-  onOpenConsultation, 
   activeCategory, 
   onSelectCategory,
   searchQuery,
@@ -282,15 +281,6 @@ export default function Header({
             <MapPin size={15} /> VISIT SHOP TO BUY
           </a>
 
-          {/* Book Consultation Button */}
-          <button 
-            className="btn-gold desktop-only"
-            onClick={onOpenConsultation}
-            style={{ padding: '9px 18px', fontSize: '12px' }}
-          >
-            BOOK CONSULTATION
-          </button>
-
           {/* Mobile Menu Toggle */}
           <button
             className="mobile-only"
@@ -510,14 +500,6 @@ export default function Header({
           >
             <MapPin size={16} /> VISIT SHOP TO BUY (MAP)
           </a>
-
-          <button 
-            className="btn-secondary" 
-            onClick={() => { setMobileMenuOpen(false); onOpenConsultation(); }}
-            style={{ width: '100%', padding: '12px 16px', fontSize: '13px', justifyContent: 'center' }}
-          >
-            BOOK ARCHITECTURAL CONSULTATION
-          </button>
 
           <div style={{ height: '1px', backgroundColor: 'var(--color-border)', margin: '4px 0' }} />
 

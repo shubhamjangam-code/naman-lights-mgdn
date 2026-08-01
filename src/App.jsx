@@ -6,7 +6,6 @@ import LightingSimulator from './components/LightingSimulator';
 import ProductCatalog from './components/ProductCatalog';
 import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
-import ConsultationModal from './components/ConsultationModal';
 import Footer from './components/Footer';
 import Background3D from './components/Background3D';
 import { PRODUCTS } from './data/products';
@@ -25,7 +24,6 @@ export default function App() {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
-  const [consultationOpen, setConsultationOpen] = useState(false);
 
   // Sync cart to local storage
   useEffect(() => {
@@ -72,7 +70,6 @@ export default function App() {
       <Header
         cartCount={cartTotalCount}
         onOpenCart={() => setCartOpen(true)}
-        onOpenConsultation={() => setConsultationOpen(true)}
         activeCategory={activeCategory}
         onSelectCategory={setActiveCategory}
         searchQuery={searchQuery}
@@ -116,7 +113,6 @@ export default function App() {
           const catalogEl = document.getElementById('catalog');
           if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
         }}
-        onOpenConsultation={() => setConsultationOpen(true)}
       />
 
       {/* Modals & Drawers */}
@@ -133,11 +129,6 @@ export default function App() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearCart={handleClearCart}
-      />
-
-      <ConsultationModal
-        isOpen={consultationOpen}
-        onClose={() => setConsultationOpen(false)}
       />
 
       {/* Mobile Floating Quick Contact & Map Pill */}

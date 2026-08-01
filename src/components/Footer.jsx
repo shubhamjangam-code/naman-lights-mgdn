@@ -10,7 +10,7 @@ const InstagramIcon = ({ size = 18, color = "#e1306c" }) => (
   </svg>
 );
 
-export default function Footer({ onSelectCategory, onOpenConsultation }) {
+export default function Footer({ onSelectCategory }) {
   return (
     <footer style={{
       backgroundColor: 'transparent',
@@ -91,9 +91,6 @@ export default function Footer({ onSelectCategory, onOpenConsultation }) {
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap' }}>
-              <button className="btn-gold" onClick={onOpenConsultation}>
-                <Sparkles size={15} /> SCHEDULE PRIVATE VISIT
-              </button>
               <a 
                 href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA" 
                 target="_blank" 

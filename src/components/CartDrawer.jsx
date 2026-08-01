@@ -252,7 +252,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                   />
                   
                   <button type="submit" className="btn-secondary" style={{ width: '100%', marginTop: '2px' }}>
-                    BOOK IN-STORE EXPERIENCE VISIT
+                    SUBMIT INQUIRY
                   </button>
                 </form>
               </div>
