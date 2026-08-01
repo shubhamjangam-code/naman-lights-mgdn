@@ -4,15 +4,6 @@ import { X, Check, Shield, Download, MapPin, Phone, Sun, Sliders, Layers } from 
 export default function ProductModal({ product, onClose, onAddToCart }) {
   if (!product) return null;
 
-  const gallery = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
-  const [activeImage, setActiveImage] = React.useState(product.image);
-
-  React.useEffect(() => {
-    if (product) {
-      setActiveImage(product.image);
-    }
-  }, [product]);
-
   return (
     <div style={{
       position: 'fixed',
@@ -81,66 +72,18 @@ export default function ProductModal({ product, onClose, onAddToCart }) {
               backgroundColor: '#0f172a',
               aspectRatio: '4/3',
               border: '1px solid var(--color-border)',
-              marginBottom: gallery.length > 1 ? 'var(--spacing-2)' : 'var(--spacing-3)'
+              marginBottom: 'var(--spacing-3)'
             }}>
               <img 
-                src={activeImage} 
+                src={product.image} 
                 alt={product.name} 
                 onError={(e) => {
                   e.target.onerror = null;
-                  if (product.category === 'table') {
-                    e.target.src = '/images/table_modern_real.jpg';
-                  } else if (product.category === 'pendants') {
-                    e.target.src = '/images/pendant.png';
-                  } else if (product.category === 'sconces') {
-                    e.target.src = '/images/sconce.png';
-                  } else if (product.category === 'track') {
-                    e.target.src = '/images/track.png';
-                  } else {
-                    e.target.src = '/images/chandelier_grand.png';
-                  }
+                  e.target.src = '/images/chandelier_cascade.png';
                 }}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.3s ease' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
-
-            {/* Gallery Thumbnails */}
-            {gallery.length > 1 && (
-              <div style={{
-                display: 'flex',
-                gap: '8px',
-                marginBottom: 'var(--spacing-3)',
-                overflowX: 'auto',
-                paddingBottom: '4px'
-              }}>
-                {gallery.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveImage(img)}
-                    style={{
-                      border: activeImage === img ? '2px solid var(--color-gold)' : '1px solid var(--color-border)',
-                      borderRadius: '6px',
-                      padding: 0,
-                      overflow: 'hidden',
-                      cursor: 'pointer',
-                      width: '64px',
-                      height: '48px',
-                      flexShrink: 0,
-                      backgroundColor: '#0f172a',
-                      opacity: activeImage === img ? 1 : 0.65,
-                      transition: 'all 0.2s ease',
-                      boxShadow: activeImage === img ? '0 0 8px rgba(197, 160, 89, 0.4)' : 'none'
-                    }}
-                  >
-                    <img 
-                      src={img} 
-                      alt={`${product.name} thumbnail ${idx + 1}`} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
 
             {/* Quick Feature Pills */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-2)' }}>
