@@ -445,30 +445,101 @@ input::placeholder, textarea::placeholder {
 }
 
 .lamp-switched-on {
-  box-shadow: 0 0 30px rgba(255, 205, 80, 0.45), 0 12px 35px rgba(15, 23, 42, 0.12) !important;
-  border-color: #ffd700 !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 10px 30px rgba(15, 23, 42, 0.1) !important;
+  border-color: #d4af37 !important;
 }
 
 .bulb-glow-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: 
-    /* Jhoomer / Bulb Hotspot Glow at top center */
-    radial-gradient(ellipse 70% 50% at 50% 20%, rgba(255, 245, 190, 0.85) 0%, rgba(255, 190, 50, 0.5) 30%, rgba(212, 175, 55, 0.2) 60%, transparent 85%),
-    /* Downward Soft Light Beams */
-    radial-gradient(ellipse 90% 80% at 50% 0%, rgba(255, 220, 120, 0.4) 0%, transparent 75%);
+  background: radial-gradient(circle at 50% 35%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.1) 60%, transparent 90%);
   mix-blend-mode: color-dodge;
-  animation: jhoomerLightIgnite 0.2s ease-out forwards;
+  pointer-events: none;
+  animation: fadeIn 0.2s ease-out forwards;
 }
 
-@keyframes jhoomerLightIgnite {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
+@keyframes rayRadiateOut {
+  0% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(0.7) rotate(0deg);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.15) rotate(4deg);
   }
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.4) rotate(8deg);
+  }
+}
+
+@keyframes pulseBulbCenter {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.85;
+  }
+}
+
+.bulb-center-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 225, 130, 0.75) 0%, rgba(212, 175, 55, 0.35) 45%, rgba(212, 175, 55, 0) 80%);
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: pulseBulbCenter 1.2s infinite alternate ease-in-out;
+}
+
+.ray-conic-spread {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(255, 215, 110, 0.4) 0deg,
+    transparent 12deg,
+    rgba(255, 215, 110, 0.4) 25deg,
+    transparent 38deg,
+    rgba(255, 215, 110, 0.4) 50deg,
+    transparent 62deg,
+    rgba(255, 215, 110, 0.4) 75deg,
+    transparent 88deg,
+    rgba(255, 215, 110, 0.4) 100deg,
+    transparent 112deg,
+    rgba(255, 215, 110, 0.4) 125deg,
+    transparent 138deg,
+    rgba(255, 215, 110, 0.4) 150deg,
+    transparent 162deg,
+    rgba(255, 215, 110, 0.4) 175deg,
+    transparent 188deg,
+    rgba(255, 215, 110, 0.4) 200deg,
+    transparent 212deg,
+    rgba(255, 215, 110, 0.4) 225deg,
+    transparent 238deg,
+    rgba(255, 215, 110, 0.4) 250deg,
+    transparent 262deg,
+    rgba(255, 215, 110, 0.4) 275deg,
+    transparent 288deg,
+    rgba(255, 215, 110, 0.4) 300deg,
+    transparent 312deg,
+    rgba(255, 215, 110, 0.4) 325deg,
+    transparent 338deg
+  );
+  filter: blur(3px);
+  mix-blend-mode: screen;
+  animation: rayRadiateOut 1.5s infinite ease-out;
+  pointer-events: none;
 }
