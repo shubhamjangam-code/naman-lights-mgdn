@@ -169,78 +169,96 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
 
           </div>
 
-          {/* Right Showcase Card Column */}
-          <div>
+          {/* Right Showcase Column (Full Scale Hero Image) */}
+          <div style={{ width: '100%', minWidth: 0 }}>
             <div style={{
               backgroundColor: 'var(--color-bg-secondary)',
-              border: '1px solid var(--color-border-gold)',
-              borderRadius: '12px',
-              padding: '12px',
-              boxShadow: 'var(--shadow-card)',
-              position: 'relative'
+              border: '1.5px solid var(--color-border-gold)',
+              borderRadius: '16px',
+              padding: '10px',
+              boxShadow: '0 20px 50px rgba(15, 23, 42, 0.15)',
+              position: 'relative',
+              width: '100%',
+              boxSizing: 'border-box'
             }}>
               <div style={{
                 position: 'relative',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                aspectRatio: '4/3',
+                width: '100%',
+                minHeight: '520px',
+                maxHeight: '680px',
                 backgroundColor: '#0a0d12'
               }}>
                 <img 
                   src="/images/chandelier.png" 
-                  alt="Aura Ring Crystal Chandelier Showcase"
+                  alt="Aura Ring Crystal Chandelier Full Scale Showcase"
                   style={{
                     width: '100%',
                     height: '100%',
+                    minHeight: '520px',
                     objectFit: 'cover',
-                    display: 'block'
+                    objectPosition: 'center center',
+                    display: 'block',
+                    transition: 'transform 0.8s ease'
                   }}
                 />
+
+                {/* Subtle Luxury Gradient Vignette */}
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(10, 13, 18, 0.85) 0%, rgba(10, 13, 18, 0.1) 50%, rgba(10, 13, 18, 0.25) 100%)',
+                  pointerEvents: 'none'
+                }} />
                 
                 {/* Floating Spec Tag with Gold Glassmorphism */}
                 <div style={{
                   position: 'absolute',
-                  bottom: 'var(--spacing-3)',
-                  left: 'var(--spacing-3)',
-                  right: 'var(--spacing-3)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(10px)',
+                  bottom: 'var(--spacing-4)',
+                  left: 'var(--spacing-4)',
+                  right: 'var(--spacing-4)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                  backdropFilter: 'blur(16px)',
                   border: '1px solid var(--color-border-gold)',
-                  borderRadius: 'var(--radius-subtle)',
-                  padding: 'var(--spacing-3)',
+                  borderRadius: '10px',
+                  padding: '14px 18px',
                   display: 'flex',
                   justify: 'space-between',
                   alignItems: 'center',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.12)'
+                  boxShadow: '0 12px 35px rgba(0,0,0,0.25)',
+                  flexWrap: 'wrap',
+                  gap: '10px'
                 }}>
                   <div>
                     <div style={{ 
                       color: '#745618', 
-                      fontSize: '10px', 
+                      fontSize: '10.5px', 
                       letterSpacing: '0.14em', 
                       textTransform: 'uppercase', 
-                      fontWeight: 700,
+                      fontWeight: 800,
                       marginBottom: '2px' 
                     }}>
-                      FEATURED ARCHITECTURAL FIXTURE
+                      GRAND STATEMENT JHOOMER
                     </div>
-                    <div style={{ color: 'var(--color-text-high-contrast)', fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                      Aura Ring Crystal Chandelier
+                    <div style={{ color: 'var(--color-text-high-contrast)', fontSize: '18px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                      Solstice Cascade Multi-Tier Jhoomer
                     </div>
-                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '11px' }}>
-                      4,200 lm · DALI-2 Dimmable · Hand-Cut Crystal
+                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '12px', marginTop: '2px' }}>
+                      6,500 lm · DALI-2 Dimmable · Hand-Cut K9 Prisms
                     </div>
                   </div>
                   <span style={{
-                    color: '#745618',
-                    backgroundColor: 'var(--color-gold-light)',
-                    border: '1px solid var(--color-border-gold)',
+                    color: '#ffffff',
+                    background: 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)',
+                    border: '1px solid #ffe596',
                     borderRadius: '20px',
-                    padding: '4px 12px',
+                    padding: '6px 14px',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em'
+                    fontSize: '11.5px',
+                    fontWeight: 800,
+                    letterSpacing: '0.04em',
+                    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.35)'
                   }}>
                     IN-STORE EXCLUSIVE
                   </span>
