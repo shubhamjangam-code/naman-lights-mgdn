@@ -5,7 +5,15 @@ export default function LightingSimulator() {
   const [kelvin, setKelvin] = useState(2700);
   const [brightness, setBrightness] = useState(80);
   const [selectedRoom, setSelectedRoom] = useState('living');
+  const [isIgnited, setIsIgnited] = useState(true);
+  const [flashKey, setFlashKey] = useState(0);
   const pillContainerRef = useRef(null);
+
+  const triggerLightSwitchOn = (roomId) => {
+    setSelectedRoom(roomId);
+    setIsIgnited(true);
+    setFlashKey(prev => prev + 1);
+  };
 
   // Calculate dynamic light color gradient based on Kelvin
   const getKelvinColor = (k) => {
@@ -104,8 +112,10 @@ export default function LightingSimulator() {
             >
               {/* Room Photo */}
               <img 
+                key={flashKey}
                 src={currentRoom.image} 
                 alt={currentRoom.label}
+                className="animate-fade-in"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -115,15 +125,19 @@ export default function LightingSimulator() {
                 }}
               />
 
-              {/* Dynamic Light Glow */}
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: `radial-gradient(ellipse at 50% 30%, ${currentColorBase}${alphaVal}) 0%, ${currentColorBase}0) 70%)`,
-                mixBlendMode: 'screen',
-                pointerEvents: 'none',
-                transition: 'all 0.3s ease'
-              }} />
+              {/* Dynamic Light Glow & Switch ON Flare */}
+              <div 
+                key={'glow-' + flashKey}
+                className="bulb-glow-overlay"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: `radial-gradient(ellipse at 50% 30%, ${currentColorBase}${alphaVal * 1.5}) 0%, ${currentColorBase}0) 70%)`,
+                  mixBlendMode: 'screen',
+                  pointerEvents: 'none',
+                  transition: 'all 0.3s ease'
+                }} 
+              />
 
               {/* Floating Live Badge */}
               <div style={{
@@ -238,7 +252,7 @@ export default function LightingSimulator() {
                 {ROOM_SETTINGS.map(r => (
                   <button
                     key={r.id}
-                    onClick={() => setSelectedRoom(r.id)}
+                    onClick={() => triggerLightSwitchOn(r.id)}
                     style={{
                       background: selectedRoom === r.id 
                         ? 'linear-gradient(135deg, #d4af37 0%, #9e750e 100%)' 

@@ -1,38 +1,51 @@
-import React from 'react';
-import { Eye, MapPin, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Eye, MapPin, Star, Zap, Sparkles } from 'lucide-react';
 
 export default function ProductCard({ product, onQuickView, onAddToCart }) {
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
-    <div style={{
-      backgroundColor: 'rgba(255, 255, 255, 0.85)',
-      backdropFilter: 'blur(14px)',
-      border: '1px solid rgba(212, 175, 55, 0.3)',
-      borderRadius: '10px',
-      padding: 'var(--spacing-3)',
-      boxShadow: '0 8px 30px rgba(15, 23, 42, 0.05)',
-      display: 'flex',
-      flexDirection: 'column',
-      justify: 'space-between',
-      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-      height: '100%',
-      position: 'relative',
-      zIndex: 1
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.8)';
-      e.currentTarget.style.transform = 'translateY(-6px)';
-      e.currentTarget.style.boxShadow = '0 18px 45px rgba(212, 175, 55, 0.22)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 8px 30px rgba(15, 23, 42, 0.05)';
-    }}
+    <div 
+      className={isPressed ? 'lamp-switched-on' : ''}
+      style={{
+        backgroundColor: isPressed ? 'rgba(255, 253, 245, 0.98)' : 'rgba(255, 255, 255, 0.85)',
+        backdropFilter: 'blur(14px)',
+        border: isPressed ? '1.5px solid #d4af37' : '1px solid rgba(212, 175, 55, 0.3)',
+        borderRadius: '10px',
+        padding: 'var(--spacing-3)',
+        boxShadow: isPressed 
+          ? '0 0 25px rgba(212, 175, 55, 0.35), 0 10px 30px rgba(15, 23, 42, 0.1)' 
+          : '0 8px 30px rgba(15, 23, 42, 0.05)',
+        display: 'flex',
+        flexDirection: 'column',
+        justify: 'space-between',
+        transition: 'all 0.25s ease',
+        height: '100%',
+        position: 'relative',
+        zIndex: 1
+      }}
+      onMouseEnter={(e) => {
+        if (!isPressed) {
+          e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.8)';
+          e.currentTarget.style.transform = 'translateY(-6px)';
+          e.currentTarget.style.boxShadow = '0 18px 45px rgba(212, 175, 55, 0.22)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        setIsPressed(false);
+        e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = '0 8px 30px rgba(15, 23, 42, 0.05)';
+      }}
     >
       <div>
         {/* Product Image Container */}
         <div 
           onClick={() => onQuickView(product)}
+          onTouchStart={() => setIsPressed(true)}
+          onTouchEnd={() => setIsPressed(false)}
+          onMouseDown={() => setIsPressed(true)}
+          onMouseUp={() => setIsPressed(false)}
           style={{
             position: 'relative',
             aspectRatio: '4/3',
@@ -55,9 +68,46 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
               height: '100%',
               objectFit: 'cover',
               display: 'block',
-              transition: 'transform 0.4s ease'
+              filter: isPressed ? 'brightness(1.08) contrast(1.04)' : 'brightness(1)',
+              transition: 'all 0.2s ease'
             }}
           />
+
+          {/* Soft Golden Ambient Aura Overlay on Touch */}
+          {isPressed && (
+            <div className="bulb-glow-overlay" />
+          )}
+
+          {/* Premium Ambient Indicator Badge */}
+          <div style={{
+            position: 'absolute',
+            bottom: 'var(--spacing-2)',
+            left: 'var(--spacing-2)',
+            background: isPressed 
+              ? 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)' 
+              : 'rgba(15, 23, 42, 0.75)',
+            color: '#ffffff',
+            border: '1px solid ' + (isPressed ? '#ffe89e' : 'rgba(255,255,255,0.3)'),
+            borderRadius: '14px',
+            padding: '3px 9px',
+            fontSize: '10px',
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            boxShadow: isPressed ? '0 0 12px rgba(212,175,55,0.5)' : 'none',
+            transition: 'all 0.2s ease'
+          }}>
+            {isPressed ? (
+              <>
+                <Sparkles size={11} color="#ffffff" /> AMBIENCE ILLUMINATED
+              </>
+            ) : (
+              <>
+                <Sparkles size={11} color="#ffd700" /> PRESS TO PREVIEW GLOW
+              </>
+            )}
+          </div>
 
           {/* Quick View Hover Overlay */}
           <div style={{
