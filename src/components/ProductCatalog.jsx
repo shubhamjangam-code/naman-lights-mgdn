@@ -8,6 +8,7 @@ export default function ProductCatalog({
   activeCategory, 
   onSelectCategory, 
   searchQuery, 
+  onSearchChange,
   onQuickView, 
   onAddToCart 
 }) {
@@ -15,18 +16,29 @@ export default function ProductCatalog({
 
   // Filter products by Category & Search
   let filtered = products.filter(p => {
+    const query = searchQuery.toLowerCase().trim();
+    const matchesSearch = !query || 
+      p.name.toLowerCase().includes(query) ||
+      p.tagline.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query) ||
+      p.specs.material.toLowerCase().includes(query);
     const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
-    const matchesSearch = !searchQuery || 
-      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.specs.material.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    
+    // When a search query is typed, search across the whole store catalog
+    return query ? matchesSearch : (matchesCategory && matchesSearch);
   });
 
   // Sort products
   if (sortBy === 'rating') {
     filtered.sort((a, b) => b.rating - a.rating);
   }
+
+  const handleResetFilters = () => {
+    onSelectCategory('all');
+    if (onSearchChange) {
+      onSearchChange('');
+    }
+  };
 
   return (
     <section id="catalog" className="section" style={{ backgroundColor: 'var(--color-bg)' }}>
@@ -65,7 +77,10 @@ export default function ProductCatalog({
             {CATEGORIES.map(cat => (
               <button
                 key={cat.id}
-                onClick={() => onSelectCategory(cat.id)}
+                onClick={() => {
+                  onSelectCategory(cat.id);
+                  if (onSearchChange) onSearchChange('');
+                }}
                 style={{
                   backgroundColor: activeCategory === cat.id ? 'var(--color-gold)' : 'var(--color-bg-subtle)',
                   color: activeCategory === cat.id ? '#ffffff' : 'var(--color-text-high-contrast)',
@@ -113,9 +128,28 @@ export default function ProductCatalog({
           <div style={{
             color: 'var(--color-text-secondary)',
             fontSize: 'var(--font-size-small)',
-            marginBottom: 'var(--spacing-4)'
+            marginBottom: 'var(--spacing-4)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            flexWrap: 'wrap'
           }}>
-            Showing results for "<span style={{ color: 'var(--color-gold-hover)', fontWeight: 700 }}>{searchQuery}</span>" ({filtered.length} items found)
+            <span>Showing results for "<span style={{ color: 'var(--color-gold-hover)', fontWeight: 700 }}>{searchQuery}</span>" ({filtered.length} items found)</span>
+            <button
+              onClick={handleResetFilters}
+              style={{
+                background: 'var(--color-gold-light)',
+                border: '1px solid var(--color-border-gold)',
+                color: '#745618',
+                borderRadius: '4px',
+                padding: '3px 10px',
+                fontSize: '11px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              Clear Search ✕
+            </button>
           </div>
         )}
 
@@ -141,13 +175,14 @@ export default function ProductCatalog({
             boxShadow: 'var(--shadow-low)'
           }}>
             <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-h1)', marginBottom: 'var(--spacing-2)' }}>
-              No lighting fixtures found matching your criteria.
+              No lighting fixtures found matching "<strong>{searchQuery}</strong>".
             </div>
             <button 
-              className="btn-outline-accent"
-              onClick={() => onSelectCategory('all')}
+              className="btn-gold"
+              onClick={handleResetFilters}
+              style={{ padding: '10px 22px', fontSize: '13px', marginTop: '8px' }}
             >
-              Reset Category Filters
+              Reset Search & View All Collection
             </button>
           </div>
         )}

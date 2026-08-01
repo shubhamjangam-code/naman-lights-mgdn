@@ -92,8 +92,12 @@ export default function App() {
         <ProductCatalog
           products={PRODUCTS}
           activeCategory={activeCategory}
-          onSelectCategory={setActiveCategory}
+          onSelectCategory={(cat) => {
+            setActiveCategory(cat);
+            setSearchQuery('');
+          }}
           searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
           onQuickView={setSelectedProduct}
           onAddToCart={handleAddToCart}
         />
@@ -103,6 +107,7 @@ export default function App() {
       <Footer
         onSelectCategory={(cat) => {
           setActiveCategory(cat);
+          setSearchQuery('');
           const catalogEl = document.getElementById('catalog');
           if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
         }}
