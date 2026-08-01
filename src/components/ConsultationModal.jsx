@@ -32,7 +32,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
       zIndex: 250,
       display: 'flex',
       alignItems: 'center',
-      justify: 'center',
+      justifyContent: 'center',
       padding: 'var(--spacing-4)'
     }}
     onClick={onClose}

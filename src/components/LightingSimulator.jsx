@@ -105,7 +105,7 @@ export default function LightingSimulator() {
                 position: 'relative',
                 borderRadius: '8px',
                 overflow: 'hidden',
-                minHeight: '340px',
+                minHeight: '240px',
                 backgroundColor: '#0a0d12',
                 border: '1px solid var(--color-border)'
               }}

@@ -140,7 +140,7 @@ export default function Footer({ onSelectCategory }) {
               color: '#ffffff',
               fontSize: '11px',
               display: 'flex',
-              justify: 'space-between',
+              justifyContent: 'space-between',
               alignItems: 'center'
             }}>
               <span>📍 Main Road, Gandhi Nagar, Kolhapur</span>

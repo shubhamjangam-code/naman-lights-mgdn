@@ -15,8 +15,8 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
         position: 'absolute',
         top: '-15%',
         right: '10%',
-        width: '600px',
-        height: '600px',
+        width: 'min(600px, 90vw)',
+        height: 'min(600px, 90vw)',
         borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(250, 249, 245, 0) 70%)',
         pointerEvents: 'none'
@@ -26,8 +26,8 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
         position: 'absolute',
         bottom: '-10%',
         left: '-5%',
-        width: '450px',
-        height: '450px',
+        width: 'min(450px, 80vw)',
+        height: 'min(450px, 80vw)',
         borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(108, 158, 46, 0.1) 0%, rgba(250, 249, 245, 0) 70%)',
         pointerEvents: 'none'
@@ -44,7 +44,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
           {/* Left Text Column */}
           <div>
             {/* Luxury Subtitle Tag */}
-            <div className="hero-subtitle-entrance" style={{
+            <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 'var(--spacing-2)',
@@ -69,7 +69,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
             </div>
 
             {/* Main Luxury Title in Cormorant Garamond */}
-            <h1 className="display-title hero-title-entrance" style={{
+            <h1 className="display-title" style={{
               fontSize: '46px',
               lineHeight: 1.15,
               marginBottom: 'var(--spacing-4)',
@@ -80,7 +80,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
               Engineered Luminaires for <em style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontWeight: 600, color: 'var(--color-gold-hover)' }}>Discerning</em> Architectural Spaces
             </h1>
 
-            <p className="hero-subtitle-entrance" style={{
+            <p style={{
               color: 'var(--color-text)',
               fontSize: '15px',
               lineHeight: 1.7,
@@ -92,7 +92,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
             </p>
 
             {/* CTA Buttons */}
-            <div className="hero-cta-entrance" style={{
+            <div style={{
               display: 'flex',
               gap: 'var(--spacing-3)',
               flexWrap: 'wrap',
@@ -169,96 +169,78 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
 
           </div>
 
-          {/* Right Showcase Column (Full Scale Hero Image) */}
-          <div className="hero-image-entrance" style={{ width: '100%', minWidth: 0 }}>
+          {/* Right Showcase Card Column */}
+          <div>
             <div style={{
               backgroundColor: 'var(--color-bg-secondary)',
-              border: '1.5px solid var(--color-border-gold)',
-              borderRadius: '16px',
-              padding: '10px',
-              boxShadow: '0 20px 50px rgba(15, 23, 42, 0.15)',
-              position: 'relative',
-              width: '100%',
-              boxSizing: 'border-box'
+              border: '1px solid var(--color-border-gold)',
+              borderRadius: '12px',
+              padding: '12px',
+              boxShadow: 'var(--shadow-card)',
+              position: 'relative'
             }}>
               <div style={{
                 position: 'relative',
-                borderRadius: '12px',
+                borderRadius: '8px',
                 overflow: 'hidden',
-                width: '100%',
-                minHeight: '520px',
-                maxHeight: '680px',
+                aspectRatio: '4/3',
                 backgroundColor: '#0a0d12'
               }}>
                 <img 
                   src="/images/chandelier.png" 
-                  alt="Aura Ring Crystal Chandelier Full Scale Showcase"
+                  alt="Aura Ring Crystal Chandelier Showcase"
                   style={{
                     width: '100%',
                     height: '100%',
-                    minHeight: '520px',
                     objectFit: 'cover',
-                    objectPosition: 'center center',
-                    display: 'block',
-                    transition: 'transform 0.8s ease'
+                    display: 'block'
                   }}
                 />
-
-                {/* Subtle Luxury Gradient Vignette */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(10, 13, 18, 0.85) 0%, rgba(10, 13, 18, 0.1) 50%, rgba(10, 13, 18, 0.25) 100%)',
-                  pointerEvents: 'none'
-                }} />
                 
                 {/* Floating Spec Tag with Gold Glassmorphism */}
                 <div style={{
                   position: 'absolute',
-                  bottom: 'var(--spacing-4)',
-                  left: 'var(--spacing-4)',
-                  right: 'var(--spacing-4)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                  backdropFilter: 'blur(16px)',
+                  bottom: 'var(--spacing-3)',
+                  left: 'var(--spacing-3)',
+                  right: 'var(--spacing-3)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(10px)',
                   border: '1px solid var(--color-border-gold)',
-                  borderRadius: '10px',
-                  padding: '14px 18px',
+                  borderRadius: 'var(--radius-subtle)',
+                  padding: 'var(--spacing-3)',
                   display: 'flex',
-                  justify: 'space-between',
+                  justifyContent: 'space-between',
                   alignItems: 'center',
-                  boxShadow: '0 12px 35px rgba(0,0,0,0.25)',
-                  flexWrap: 'wrap',
-                  gap: '10px'
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.12)'
                 }}>
                   <div>
                     <div style={{ 
                       color: '#745618', 
-                      fontSize: '10.5px', 
+                      fontSize: '10px', 
                       letterSpacing: '0.14em', 
                       textTransform: 'uppercase', 
-                      fontWeight: 800,
+                      fontWeight: 700,
                       marginBottom: '2px' 
                     }}>
-                      GRAND STATEMENT JHOOMER
+                      FEATURED ARCHITECTURAL FIXTURE
                     </div>
-                    <div style={{ color: 'var(--color-text-high-contrast)', fontSize: '18px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                      Solstice Cascade Multi-Tier Jhoomer
+                    <div style={{ color: 'var(--color-text-high-contrast)', fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                      Aura Ring Crystal Chandelier
                     </div>
-                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '12px', marginTop: '2px' }}>
-                      6,500 lm · DALI-2 Dimmable · Hand-Cut K9 Prisms
+                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '11px' }}>
+                      4,200 lm · DALI-2 Dimmable · Hand-Cut Crystal
                     </div>
                   </div>
                   <span style={{
-                    color: '#ffffff',
-                    background: 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)',
-                    border: '1px solid #ffe596',
+                    color: '#745618',
+                    backgroundColor: 'var(--color-gold-light)',
+                    border: '1px solid var(--color-border-gold)',
                     borderRadius: '20px',
-                    padding: '6px 14px',
+                    padding: '4px 12px',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '11.5px',
-                    fontWeight: 800,
-                    letterSpacing: '0.04em',
-                    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.35)'
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em'
                   }}>
                     IN-STORE EXCLUSIVE
                   </span>

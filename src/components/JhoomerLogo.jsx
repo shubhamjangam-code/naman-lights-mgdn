@@ -16,7 +16,7 @@ export default function JhoomerLogo({ size = 48, className = "" }) {
         borderRadius: '50%',
         display: 'inline-flex',
         alignItems: 'center',
-        justify: 'center',
+        justifyContent: 'center',
         flexShrink: 0,
         boxShadow: '0 4px 14px rgba(212, 175, 55, 0.35), 0 2px 6px rgba(10, 15, 26, 0.4)',
         cursor: 'pointer',

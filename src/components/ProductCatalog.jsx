@@ -21,7 +21,7 @@ export default function ProductCatalog({
       p.name.toLowerCase().includes(query) ||
       p.tagline.toLowerCase().includes(query) ||
       p.category.toLowerCase().includes(query) ||
-      p.specs.material.toLowerCase().includes(query);
+      (p.specs?.material && p.specs.material.toLowerCase().includes(query));
     const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
     
     // When a search query is typed, search across the whole store catalog

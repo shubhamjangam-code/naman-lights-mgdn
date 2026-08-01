@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ShoppingBag, Search, Menu, X, Phone, MapPin, ArrowRight } from 'lucide-react';
 import JhoomerLogo from './JhoomerLogo';
 import { PRODUCTS } from '../data/products';
@@ -21,20 +21,6 @@ export default function Header({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleSearchSubmit = (queryToUse = searchQuery) => {
     if (!queryToUse.trim()) return;
@@ -68,26 +54,16 @@ export default function Header({
 
   return (
     <header style={{
-      backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.82)' : 'rgba(255, 255, 255, 0.95)',
-      backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'blur(12px)',
-      WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'blur(12px)',
-      borderBottom: '1px solid ' + (isScrolled ? 'rgba(212, 175, 55, 0.5)' : 'var(--color-border-gold)'),
+      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: 'blur(16px)',
+      borderBottom: '1px solid var(--color-border-gold)',
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      boxShadow: isScrolled ? '0 10px 30px rgba(15, 23, 42, 0.08)' : 'var(--shadow-low)',
-      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+      boxShadow: 'var(--shadow-low)'
     }}>
-      {/* Micro Luxury Top Info Bar with Smooth Shrink Transition */}
-      <div 
-        className="top-info-bar"
-        style={{
-          maxHeight: isScrolled ? '0px' : '40px',
-          opacity: isScrolled ? 0 : 1,
-          overflow: 'hidden',
-          transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
-        }}
-      >
+      {/* Micro Luxury Top Info Bar with Exact Address & Map Link */}
+      <div className="top-info-bar">
         <div className="top-info-left">
           <a 
             href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA" 
@@ -123,14 +99,13 @@ export default function Header({
         </div>
       </div>
 
-      {/* Main Header Container with Smooth Height Shrink */}
+      {/* Main Header Container */}
       <div className="container header-main-container" style={{
         display: 'flex',
         alignItems: 'center',
-        justify: 'space-between',
-        height: isScrolled ? '58px' : '72px',
-        gap: '8px',
-        transition: 'height 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
+        justifyContent: 'space-between',
+        height: '72px',
+        gap: '8px'
       }}>
         {/* Brand Logo & Name Block */}
         <a href="#" style={{ 
@@ -405,7 +380,7 @@ export default function Header({
                   color: '#745618',
                   letterSpacing: '0.04em',
                   display: 'flex',
-                  justify: 'space-between',
+                  justifyContent: 'space-between',
                   alignItems: 'center'
                 }}>
                   <span>Instant Product Suggestions</span>
@@ -518,7 +493,7 @@ export default function Header({
               textDecoration: 'none', 
               padding: '12px 16px', 
               fontSize: '13px', 
-              justify: 'center',
+              justifyContent: 'center',
               fontWeight: 700
             }}
             onClick={() => setMobileMenuOpen(false)}

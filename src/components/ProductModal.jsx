@@ -13,7 +13,7 @@ export default function ProductModal({ product, onClose, onAddToCart }) {
       zIndex: 200,
       display: 'flex',
       alignItems: 'center',
-      justify: 'center',
+      justifyContent: 'center',
       padding: 'var(--spacing-4)'
     }}
     onClick={onClose}
@@ -49,7 +49,7 @@ export default function ProductModal({ product, onClose, onAddToCart }) {
             height: '32px',
             display: 'flex',
             alignItems: 'center',
-            justify: 'center',
+            justifyContent: 'center',
             cursor: 'pointer',
             zIndex: 10
           }}

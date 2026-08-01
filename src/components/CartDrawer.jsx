@@ -29,7 +29,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
       backdropFilter: 'blur(6px)',
       zIndex: 200,
       display: 'flex',
-      justify: 'flex-end'
+      justifyContent: 'flex-end'
     }}
     onClick={onClose}
     >
@@ -54,7 +54,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           borderBottom: '1px solid var(--color-border)',
           display: 'flex',
           alignItems: 'center',
-          justify: 'space-between',
+          justifyContent: 'space-between',
           backgroundColor: 'var(--color-bg-subtle)'
         }}>
           <div>

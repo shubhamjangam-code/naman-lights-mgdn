@@ -8,7 +8,6 @@ import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import Background3D from './components/Background3D';
-import ScrollReveal from './components/ScrollReveal';
 import { PRODUCTS } from './data/products';
 
 export default function App() {
@@ -63,7 +62,7 @@ export default function App() {
   const cartTotalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div style={{ backgroundColor: 'transparent', minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+    <div style={{ backgroundColor: 'transparent', minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', width: '100%', overflowX: 'hidden' }}>
       {/* 3D Animated Background Layer */}
       <Background3D />
 
@@ -78,7 +77,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, position: 'relative', zIndex: 1, width: '100%' }}>
         <Hero
           onExploreCatalog={() => {
             const catalogEl = document.getElementById('catalog');
@@ -90,37 +89,31 @@ export default function App() {
           }}
         />
 
-        <ScrollReveal variant="fade-up" delay={0.05}>
-          <LightingSimulator />
-        </ScrollReveal>
+        <LightingSimulator />
 
-        <ScrollReveal variant="fade-up" delay={0.1}>
-          <ProductCatalog
-            products={PRODUCTS}
-            activeCategory={activeCategory}
-            onSelectCategory={(cat) => {
-              setActiveCategory(cat);
-              setSearchQuery('');
-            }}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            onQuickView={setSelectedProduct}
-            onAddToCart={handleAddToCart}
-          />
-        </ScrollReveal>
-      </main>
-
-      {/* Footer */}
-      <ScrollReveal variant="fade-up">
-        <Footer
+        <ProductCatalog
+          products={PRODUCTS}
+          activeCategory={activeCategory}
           onSelectCategory={(cat) => {
             setActiveCategory(cat);
             setSearchQuery('');
-            const catalogEl = document.getElementById('catalog');
-            if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
           }}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          onQuickView={setSelectedProduct}
+          onAddToCart={handleAddToCart}
         />
-      </ScrollReveal>
+      </main>
+
+      {/* Footer */}
+      <Footer
+        onSelectCategory={(cat) => {
+          setActiveCategory(cat);
+          setSearchQuery('');
+          const catalogEl = document.getElementById('catalog');
+          if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
 
       {/* Modals & Drawers */}
       <ProductModal
