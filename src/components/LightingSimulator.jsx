@@ -125,14 +125,13 @@ export default function LightingSimulator() {
                 }}
               />
 
-              {/* Dynamic Light Glow & Switch ON Flare */}
+              {/* Dynamic Light Glow */}
               <div 
                 key={'glow-' + flashKey}
-                className="bulb-glow-overlay"
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: `radial-gradient(ellipse at 50% 30%, ${currentColorBase}${alphaVal * 1.5}) 0%, ${currentColorBase}0) 70%)`,
+                  background: `radial-gradient(ellipse at 50% 30%, ${currentColorBase}${alphaVal}) 0%, ${currentColorBase}0) 75%)`,
                   mixBlendMode: 'screen',
                   pointerEvents: 'none',
                   transition: 'all 0.3s ease'

@@ -68,19 +68,23 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
               height: '100%',
               objectFit: 'cover',
               display: 'block',
-              filter: isPressed ? 'brightness(1.08) contrast(1.04)' : 'brightness(1)',
-              transition: 'all 0.2s ease'
+              filter: isPressed 
+                ? 'brightness(1.15) contrast(1.08) saturate(1.12)' 
+                : 'brightness(1) contrast(1) saturate(1)',
+              transition: 'filter 0.3s ease, transform 0.3s ease',
+              transform: isPressed ? 'scale(1.02)' : 'scale(1)'
             }}
           />
 
-          {/* Soft Golden Ambient Aura Overlay & Radiating Light Rays from Bulb Point */}
-          {isPressed && (
-            <>
-              <div className="bulb-glow-overlay" />
-              <div className="bulb-center-glow" />
-              <div className="ray-conic-spread" />
-            </>
-          )}
+          {/* Natural Touch Glow Rim */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            boxShadow: isPressed ? 'inset 0 0 30px rgba(212, 175, 55, 0.4)' : 'none',
+            borderRadius: '6px',
+            pointerEvents: 'none',
+            transition: 'box-shadow 0.3s ease'
+          }} />
 
           {/* Premium Ambient Indicator Badge */}
           <div style={{
@@ -100,15 +104,15 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
             alignItems: 'center',
             gap: '4px',
             boxShadow: isPressed ? '0 0 12px rgba(212,175,55,0.5)' : 'none',
-            transition: 'all 0.2s ease'
+            transition: 'all 0.3s ease'
           }}>
             {isPressed ? (
               <>
-                <Sparkles size={11} color="#ffffff" /> AMBIENCE ILLUMINATED
+                <Sparkles size={11} color="#ffffff" /> LIGHTING SWITCHED ON
               </>
             ) : (
               <>
-                <Sparkles size={11} color="#ffd700" /> PRESS TO PREVIEW GLOW
+                <Sparkles size={11} color="#ffd700" /> PRESS & HOLD TO LIGHT ON
               </>
             )}
           </div>
