@@ -8,6 +8,7 @@ import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import Background3D from './components/Background3D';
+import ScrollReveal from './components/ScrollReveal';
 import { PRODUCTS } from './data/products';
 
 export default function App() {
@@ -89,31 +90,37 @@ export default function App() {
           }}
         />
 
-        <LightingSimulator />
+        <ScrollReveal variant="fade-up" delay={0.05}>
+          <LightingSimulator />
+        </ScrollReveal>
 
-        <ProductCatalog
-          products={PRODUCTS}
-          activeCategory={activeCategory}
-          onSelectCategory={(cat) => {
-            setActiveCategory(cat);
-            setSearchQuery('');
-          }}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          onQuickView={setSelectedProduct}
-          onAddToCart={handleAddToCart}
-        />
+        <ScrollReveal variant="fade-up" delay={0.1}>
+          <ProductCatalog
+            products={PRODUCTS}
+            activeCategory={activeCategory}
+            onSelectCategory={(cat) => {
+              setActiveCategory(cat);
+              setSearchQuery('');
+            }}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            onQuickView={setSelectedProduct}
+            onAddToCart={handleAddToCart}
+          />
+        </ScrollReveal>
       </main>
 
       {/* Footer */}
-      <Footer
-        onSelectCategory={(cat) => {
-          setActiveCategory(cat);
-          setSearchQuery('');
-          const catalogEl = document.getElementById('catalog');
-          if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
-        }}
-      />
+      <ScrollReveal variant="fade-up">
+        <Footer
+          onSelectCategory={(cat) => {
+            setActiveCategory(cat);
+            setSearchQuery('');
+            const catalogEl = document.getElementById('catalog');
+            if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
+      </ScrollReveal>
 
       {/* Modals & Drawers */}
       <ProductModal

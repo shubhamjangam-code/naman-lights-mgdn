@@ -44,7 +44,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
           {/* Left Text Column */}
           <div>
             {/* Luxury Subtitle Tag */}
-            <div style={{
+            <div className="hero-subtitle-entrance" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 'var(--spacing-2)',
@@ -69,7 +69,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
             </div>
 
             {/* Main Luxury Title in Cormorant Garamond */}
-            <h1 className="display-title" style={{
+            <h1 className="display-title hero-title-entrance" style={{
               fontSize: '46px',
               lineHeight: 1.15,
               marginBottom: 'var(--spacing-4)',
@@ -80,7 +80,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
               Engineered Luminaires for <em style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontWeight: 600, color: 'var(--color-gold-hover)' }}>Discerning</em> Architectural Spaces
             </h1>
 
-            <p style={{
+            <p className="hero-subtitle-entrance" style={{
               color: 'var(--color-text)',
               fontSize: '15px',
               lineHeight: 1.7,
@@ -92,7 +92,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
             </p>
 
             {/* CTA Buttons */}
-            <div style={{
+            <div className="hero-cta-entrance" style={{
               display: 'flex',
               gap: 'var(--spacing-3)',
               flexWrap: 'wrap',
@@ -170,7 +170,7 @@ export default function Hero({ onExploreCatalog, onOpenSimulator }) {
           </div>
 
           {/* Right Showcase Column (Full Scale Hero Image) */}
-          <div style={{ width: '100%', minWidth: 0 }}>
+          <div className="hero-image-entrance" style={{ width: '100%', minWidth: 0 }}>
             <div style={{
               backgroundColor: 'var(--color-bg-secondary)',
               border: '1.5px solid var(--color-border-gold)',
