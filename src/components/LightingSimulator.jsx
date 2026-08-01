@@ -52,15 +52,15 @@ export default function LightingSimulator() {
       <div className="container">
         
         {/* Section Header */}
-        <div style={{ marginBottom: 'var(--spacing-4)' }}>
+        <div style={{ marginBottom: 'var(--spacing-3)' }}>
           <div className="section-subtitle" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Sliders size={14} color="var(--color-gold)" /> INTERACTIVE LIGHTING STUDIO
+            <Sliders size={13} color="var(--color-gold)" /> LIGHTING SIMULATOR
           </div>
-          <h2 className="display-title" style={{ fontSize: '26px', color: 'var(--color-text-high-contrast)', marginTop: '2px' }}>
-            Room Ambiance & Mood Simulator
+          <h2 className="display-title" style={{ fontSize: '22px', color: 'var(--color-text-high-contrast)', marginTop: '2px' }}>
+            Light Color & Ambiance Simulator
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: '13.5px', marginTop: '4px', maxWidth: '750px' }}>
-            Test how different light color warmth (Kelvin) and brightness levels change your home atmosphere before buying!
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: '13px', marginTop: '3px', maxWidth: '650px' }}>
+            Adjust color warmth and brightness to preview live room lighting effects.
           </p>
         </div>
 
@@ -69,15 +69,15 @@ export default function LightingSimulator() {
           backgroundColor: 'rgba(212, 175, 55, 0.08)',
           border: '1px solid var(--color-border-gold)',
           borderRadius: '8px',
-          padding: '10px 14px',
-          marginBottom: 'var(--spacing-4)',
+          padding: '8px 12px',
+          marginBottom: 'var(--spacing-3)',
           display: 'flex',
           alignItems: 'center',
-          gap: '10px'
+          gap: '8px'
         }}>
-          <Info size={18} color="var(--color-gold-hover)" style={{ flexShrink: 0 }} />
-          <div style={{ fontSize: '12px', color: '#523a0d', lineHeight: 1.4 }}>
-            <strong>How it works:</strong> Tap a fixture setting below, then move the <strong>Light Color</strong> & <strong>Brightness</strong> sliders to see how live room lighting transforms!
+          <Info size={16} color="var(--color-gold-hover)" style={{ flexShrink: 0 }} />
+          <div style={{ fontSize: '11.5px', color: '#523a0d', lineHeight: 1.3 }}>
+            <strong>Quick Guide:</strong> Select a fixture below, then adjust <strong>Color</strong> & <strong>Brightness</strong>.
           </div>
         </div>
 

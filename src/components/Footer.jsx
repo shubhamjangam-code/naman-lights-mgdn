@@ -34,12 +34,12 @@ export default function Footer({ onSelectCategory }) {
         }} className="showroom-grid">
 
           <div>
-            <div className="section-subtitle">FLAGSHIP EXPERIENCE CENTER</div>
-            <h2 className="display-title" style={{ fontSize: '28px', color: 'var(--color-text-high-contrast)', marginBottom: 'var(--spacing-3)' }}>
-              Visit Our Flagship Store in Kolhapur
+            <div className="section-subtitle">SHOWROOM LOCATION</div>
+            <h2 className="display-title" style={{ fontSize: '24px', color: 'var(--color-text-high-contrast)', marginBottom: 'var(--spacing-2)' }}>
+              Visit Our Store in Kolhapur
             </h2>
-            <p style={{ color: 'var(--color-text)', fontSize: '14px', lineHeight: 1.7, marginBottom: 'var(--spacing-5)' }}>
-              Step into our experience studio featuring real-scale installations of custom Jhoomers, magnetic track systems, architectural profiles, and high-CRI optical diffusers.
+            <p style={{ color: 'var(--color-text)', fontSize: '13.5px', lineHeight: 1.6, marginBottom: 'var(--spacing-4)' }}>
+              Visit our showroom in Kolhapur to see live displays of custom Jhoomers, chandeliers, and magnetic track systems.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)', fontSize: '14px', color: 'var(--color-text)', marginBottom: 'var(--spacing-6)' }}>

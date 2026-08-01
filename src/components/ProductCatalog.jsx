@@ -46,9 +46,9 @@ export default function ProductCatalog({
         
         {/* Section Title */}
         <div className="section-title" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: 'var(--spacing-1)' }}>
-          <div className="section-subtitle">CURATED ARCHITECTURAL COLLECTION</div>
-          <h2 className="display-title" style={{ fontSize: '28px', color: 'var(--color-text-high-contrast)' }}>
-            Precision Lighting Fixtures
+          <div className="section-subtitle">OUR COLLECTION</div>
+          <h2 className="display-title" style={{ fontSize: '24px', color: 'var(--color-text-high-contrast)' }}>
+            Explore Lighting Fixtures
           </h2>
         </div>
 
