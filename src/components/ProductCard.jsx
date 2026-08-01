@@ -68,12 +68,12 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
               height: '100%',
               objectFit: 'cover',
               display: 'block',
-              filter: isPressed ? 'brightness(1.08) contrast(1.04)' : 'brightness(1)',
+              filter: isPressed ? 'brightness(1.18) contrast(1.08) drop-shadow(0 0 12px rgba(255,215,0,0.5))' : 'brightness(1)',
               transition: 'all 0.2s ease'
             }}
           />
 
-          {/* Soft Golden Ambient Aura Overlay on Touch */}
+          {/* Authentic Jhoomer & Bulb Light Blowing Overlay */}
           {isPressed && (
             <div className="bulb-glow-overlay" />
           )}
@@ -84,7 +84,7 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
             bottom: 'var(--spacing-2)',
             left: 'var(--spacing-2)',
             background: isPressed 
-              ? 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)' 
+              ? 'linear-gradient(135deg, #dfb738 0%, #aa8214 100%)' 
               : 'rgba(15, 23, 42, 0.75)',
             color: '#ffffff',
             border: '1px solid ' + (isPressed ? '#ffe89e' : 'rgba(255,255,255,0.3)'),
@@ -95,16 +95,16 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
             display: 'flex',
             alignItems: 'center',
             gap: '4px',
-            boxShadow: isPressed ? '0 0 12px rgba(212,175,55,0.5)' : 'none',
+            boxShadow: isPressed ? '0 0 12px rgba(255,215,0,0.6)' : 'none',
             transition: 'all 0.2s ease'
           }}>
             {isPressed ? (
               <>
-                <Sparkles size={11} color="#ffffff" /> AMBIENCE ILLUMINATED
+                <Sparkles size={11} color="#ffffff" /> 💡 JHOOMER LIGHT BLOWING
               </>
             ) : (
               <>
-                <Sparkles size={11} color="#ffd700" /> PRESS TO PREVIEW GLOW
+                <Sparkles size={11} color="#ffd700" /> PRESS TO BLOW LIGHT
               </>
             )}
           </div>

@@ -445,15 +445,30 @@ input::placeholder, textarea::placeholder {
 }
 
 .lamp-switched-on {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 10px 30px rgba(15, 23, 42, 0.1) !important;
-  border-color: #d4af37 !important;
+  box-shadow: 0 0 30px rgba(255, 205, 80, 0.45), 0 12px 35px rgba(15, 23, 42, 0.12) !important;
+  border-color: #ffd700 !important;
 }
 
 .bulb-glow-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 35%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.1) 60%, transparent 90%);
-  mix-blend-mode: color-dodge;
   pointer-events: none;
-  animation: fadeIn 0.2s ease-out forwards;
+  background: 
+    /* Jhoomer / Bulb Hotspot Glow at top center */
+    radial-gradient(ellipse 70% 50% at 50% 20%, rgba(255, 245, 190, 0.85) 0%, rgba(255, 190, 50, 0.5) 30%, rgba(212, 175, 55, 0.2) 60%, transparent 85%),
+    /* Downward Soft Light Beams */
+    radial-gradient(ellipse 90% 80% at 50% 0%, rgba(255, 220, 120, 0.4) 0%, transparent 75%);
+  mix-blend-mode: color-dodge;
+  animation: jhoomerLightIgnite 0.2s ease-out forwards;
+}
+
+@keyframes jhoomerLightIgnite {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
