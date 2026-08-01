@@ -337,7 +337,7 @@ export const PRODUCTS = [
     priceFormatted: "₹13,800",
     tagline: "Solid ash wood tripod with natural linen shade.",
     description: "A timeless Scandinavian table luminaire bringing warm, relaxing ambient lighting to bedside tables, reading nooks, and cozy living room sideboards.",
-    image: "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/nordic_tripod_lamp.png",
     rating: 4.8,
     reviewsCount: 19,
     isFeatured: true,

@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw temp generated assets in root
+Gemini_Generated_Image_*
+Modern Cylinder*
+Monolith Cylinder*
+fetch_image.js
+

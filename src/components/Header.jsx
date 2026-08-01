@@ -101,7 +101,7 @@ export default function Header({
       </div>
 
       {/* Main Header Container */}
-      <div className="container" style={{
+      <div className="container header-main-container" style={{
         display: 'flex',
         alignItems: 'center',
         justify: 'space-between',
@@ -127,18 +127,18 @@ export default function Header({
               className="brand-title-text"
               style={{
                 fontFamily: 'var(--font-logo)',
-                fontSize: '19px',
+                fontSize: '18px',
                 fontWeight: 400,
-                letterSpacing: '0.08em',
                 lineHeight: 1.1,
                 display: 'flex',
-                alignItems: 'baseline',
-                gap: '5px',
+                alignItems: 'center',
+                gap: '6px',
                 whiteSpace: 'nowrap'
               }}
             >
-              <span className="brand-name-text" style={{ fontWeight: 600 }}>NAMAN</span>
-              <span className="brand-gold-text">FANCY LIGHT</span>
+              <span className="brand-name-text" style={{ color: 'var(--color-text-high-contrast)', fontWeight: 700, letterSpacing: '0.04em' }}>NAMAN</span>
+              <span className="brand-gold-text" style={{ color: 'var(--color-gold)', fontWeight: 600, letterSpacing: '0.04em' }}>FANCY</span>
+              <span className="brand-gold-text" style={{ color: 'var(--color-gold)', fontWeight: 600, letterSpacing: '0.04em' }}>LIGHT</span>
             </div>
             <div 
               className="brand-subtitle-text"
@@ -244,7 +244,7 @@ export default function Header({
         </nav>
 
         {/* Action Tools */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0, marginLeft: 'auto' }}>
           {/* Search Toggle Button */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
@@ -595,6 +595,11 @@ export default function Header({
         @media (max-width: 980px) {
           .desktop-only { display: none !important; }
 
+          .header-main-container {
+            padding-left: 12px !important;
+            padding-right: 10px !important;
+          }
+
           .top-info-bar {
             flex-direction: row;
             flex-wrap: wrap;
@@ -625,12 +630,17 @@ export default function Header({
         }
 
         @media (max-width: 640px) {
+          .header-main-container {
+            padding-left: 10px !important;
+            padding-right: 6px !important;
+          }
           .brand-title-text {
-            font-size: 16px !important;
+            font-size: 15px !important;
+            gap: 4px !important;
           }
           .brand-subtitle-text {
-            font-size: 8px !important;
-            letter-spacing: 0.12em !important;
+            font-size: 7.5px !important;
+            letter-spacing: 0.1em !important;
           }
         }
 
