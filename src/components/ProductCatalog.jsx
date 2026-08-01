@@ -41,7 +41,7 @@ export default function ProductCatalog({
   };
 
   return (
-    <section id="catalog" className="section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="catalog" className="section" style={{ backgroundColor: 'transparent' }}>
       <div className="container">
         
         {/* Section Title */}

@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, ShieldCheck, Sun, Star, Award } from 'lucide-reac
 export default function Hero({ onExploreCatalog, onOpenSimulator }) {
   return (
     <section style={{
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
       borderBottom: '1px solid var(--color-border)',
       padding: 'var(--spacing-10) 0 var(--spacing-8) 0',
       position: 'relative',

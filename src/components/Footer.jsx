@@ -13,7 +13,7 @@ const InstagramIcon = ({ size = 18, color = "#e1306c" }) => (
 export default function Footer({ onSelectCategory, onOpenConsultation }) {
   return (
     <footer style={{
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
       borderTop: '1px solid var(--color-border)',
       paddingTop: 'var(--spacing-10)',
       color: 'var(--color-text)'

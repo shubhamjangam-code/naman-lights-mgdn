@@ -40,7 +40,7 @@ export default function LightingSimulator() {
   const alphaVal = (brightness / 100) * 0.45;
 
   return (
-    <section id="ambiance" className="section" style={{ backgroundColor: 'var(--color-bg)', padding: 'var(--spacing-6) 0' }}>
+    <section id="ambiance" className="section" style={{ backgroundColor: 'transparent', padding: 'var(--spacing-6) 0' }}>
       <div className="container">
         
         {/* Section Header */}

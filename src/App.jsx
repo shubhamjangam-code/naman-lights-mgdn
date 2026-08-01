@@ -8,6 +8,7 @@ import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
 import ConsultationModal from './components/ConsultationModal';
 import Footer from './components/Footer';
+import Background3D from './components/Background3D';
 import { PRODUCTS } from './data/products';
 
 export default function App() {
@@ -63,7 +64,10 @@ export default function App() {
   const cartTotalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ backgroundColor: 'transparent', minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* 3D Animated Background Layer */}
+      <Background3D />
+
       {/* Header Bar */}
       <Header
         cartCount={cartTotalCount}

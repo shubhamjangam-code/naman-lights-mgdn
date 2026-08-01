@@ -4,26 +4,29 @@ import { Eye, MapPin, Star } from 'lucide-react';
 export default function ProductCard({ product, onQuickView, onAddToCart }) {
   return (
     <div style={{
-      backgroundColor: 'var(--color-bg-secondary)',
-      border: '1px solid var(--color-border)',
-      borderRadius: '8px',
+      backgroundColor: 'rgba(255, 255, 255, 0.85)',
+      backdropFilter: 'blur(14px)',
+      border: '1px solid rgba(212, 175, 55, 0.3)',
+      borderRadius: '10px',
       padding: 'var(--spacing-3)',
-      boxShadow: 'var(--shadow-low)',
+      boxShadow: '0 8px 30px rgba(15, 23, 42, 0.05)',
       display: 'flex',
       flexDirection: 'column',
       justify: 'space-between',
-      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-      height: '100%'
+      transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+      height: '100%',
+      position: 'relative',
+      zIndex: 1
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.borderColor = 'var(--color-gold)';
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-card)';
+      e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.8)';
+      e.currentTarget.style.transform = 'translateY(-6px)';
+      e.currentTarget.style.boxShadow = '0 18px 45px rgba(212, 175, 55, 0.22)';
     }}
     onMouseLeave={(e) => {
-      e.currentTarget.style.borderColor = 'var(--color-border)';
+      e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.3)';
       e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'var(--shadow-low)';
+      e.currentTarget.style.boxShadow = '0 8px 30px rgba(15, 23, 42, 0.05)';
     }}
     >
       <div>
@@ -100,7 +103,7 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
         {/* Title and Tagline */}
         <div style={{ marginBottom: 'var(--spacing-2)' }}>
           <h3 style={{
-            fontSize: '17px',
+            fontSize: '16.5px',
             fontFamily: 'var(--font-heading)',
             color: 'var(--color-text-high-contrast)',
             fontWeight: 600,
@@ -113,29 +116,14 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
             color: 'var(--color-text-secondary)',
             fontSize: '12px',
             marginTop: '4px',
-            lineHeight: 1.4,
-            fontWeight: 400
+            lineHeight: 1.35,
+            fontWeight: 400,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
           }}>
             {product.tagline}
           </div>
-        </div>
-
-        {/* Technical Features Strip */}
-        <div style={{
-          backgroundColor: 'var(--color-bg-subtle)',
-          borderRadius: 'var(--radius-subtle)',
-          padding: '6px 10px',
-          fontSize: '11px',
-          color: 'var(--color-text)',
-          fontWeight: 500,
-          display: 'flex',
-          justify: 'space-between',
-          marginBottom: 'var(--spacing-3)',
-          border: '1px solid var(--color-border)'
-        }}>
-          <span>{product.specs.lumens}</span>
-          <span style={{ color: 'var(--color-gold)', fontWeight: 700 }}>{product.specs.cri}</span>
-          <span>{product.specs.kelvin}</span>
         </div>
       </div>
 
