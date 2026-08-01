@@ -45,7 +45,17 @@ export default function ProductCard({ product, onQuickView, onAddToCart }) {
             alt={product.name} 
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/images/chandelier_cascade.png';
+              if (product.category === 'table') {
+                e.target.src = '/images/table_modern_real.jpg';
+              } else if (product.category === 'pendants') {
+                e.target.src = '/images/pendant.png';
+              } else if (product.category === 'sconces') {
+                e.target.src = '/images/sconce.png';
+              } else if (product.category === 'track') {
+                e.target.src = '/images/track.png';
+              } else {
+                e.target.src = '/images/chandelier_grand.png';
+              }
             }}
             style={{
               width: '100%',
