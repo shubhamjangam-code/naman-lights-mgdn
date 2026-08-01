@@ -596,26 +596,30 @@ export default function Header({
           .desktop-only { display: none !important; }
 
           .top-info-bar {
-            flex-direction: column;
-            padding: 7px 12px;
-            gap: 4px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 5px 10px;
+            gap: 4px 10px;
+            justify-content: center;
           }
 
           .top-info-left, .top-info-right {
             justify-content: center;
-            width: 100%;
-            gap: 10px;
+            width: auto;
+            gap: 8px;
           }
 
           .address-link {
-            white-space: normal;
-            text-align: center;
-            line-height: 1.35;
-            font-size: 10.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 260px;
+            line-height: 1.2;
+            font-size: 10px;
           }
 
           .phone-link, .instagram-link {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
           }
         }

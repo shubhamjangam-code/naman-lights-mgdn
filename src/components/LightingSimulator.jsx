@@ -280,7 +280,7 @@ export default function LightingSimulator() {
                 step="100" 
                 value={kelvin} 
                 onChange={(e) => setKelvin(Number(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--color-gold)', cursor: 'pointer', height: '6px' }}
+                style={{ width: '100%', accentColor: 'var(--color-gold)', cursor: 'pointer', height: '10px', margin: '4px 0', borderRadius: '5px' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9.5px', color: 'var(--color-text-secondary)', marginTop: '2px', fontWeight: 600 }}>
                 <span>🟡 2200K Sunset</span>
@@ -306,7 +306,7 @@ export default function LightingSimulator() {
                 step="5" 
                 value={brightness} 
                 onChange={(e) => setBrightness(Number(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--color-gold)', cursor: 'pointer', height: '6px' }}
+                style={{ width: '100%', accentColor: 'var(--color-gold)', cursor: 'pointer', height: '10px', margin: '4px 0', borderRadius: '5px' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9.5px', color: 'var(--color-text-secondary)', marginTop: '2px', fontWeight: 600 }}>
                 <span>10% Dim</span>

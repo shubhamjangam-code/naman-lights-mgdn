@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MapPin, Phone } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import LightingSimulator from './components/LightingSimulator';
@@ -134,6 +135,62 @@ export default function App() {
         isOpen={consultationOpen}
         onClose={() => setConsultationOpen(false)}
       />
+
+      {/* Mobile Floating Quick Contact & Map Pill */}
+      <div className="mobile-only" style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '16px',
+        zIndex: 95,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px'
+      }}>
+        <a
+          href="tel:+919876543210"
+          style={{
+            backgroundColor: '#ffffff',
+            color: 'var(--color-text-high-contrast)',
+            border: '1px solid var(--color-border-gold)',
+            borderRadius: '24px',
+            padding: '10px 14px',
+            fontSize: '11px',
+            fontWeight: 700,
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            boxShadow: '0 6px 18px rgba(15, 23, 42, 0.18)',
+            backdropFilter: 'blur(8px)'
+          }}
+          aria-label="Call Store"
+        >
+          <Phone size={13} color="var(--color-gold)" /> Call Store
+        </a>
+
+        <a
+          href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)',
+            color: '#ffffff',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            borderRadius: '24px',
+            padding: '10px 16px',
+            fontSize: '11px',
+            fontWeight: 700,
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            boxShadow: '0 6px 18px rgba(212, 175, 55, 0.35)'
+          }}
+          aria-label="Visit Store Map"
+        >
+          <MapPin size={13} /> Visit Shop
+        </a>
+      </div>
     </div>
   );
 }
