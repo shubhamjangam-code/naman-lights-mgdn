@@ -172,6 +172,7 @@ export default function ProductCatalog({
             {/* Left Carousel Arrow Button */}
             <button
               onClick={scrollLeft}
+              className="prizma-carousel-arrow"
               style={{
                 position: 'absolute',
                 left: '-24px',
@@ -232,6 +233,7 @@ export default function ProductCatalog({
             {/* Right Carousel Arrow Button */}
             <button
               onClick={scrollRight}
+              className="prizma-carousel-arrow"
               style={{
                 position: 'absolute',
                 right: '-24px',
@@ -300,6 +302,12 @@ export default function ProductCatalog({
         @media (max-width: 768px) {
           .prizma-carousel-track {
             grid-auto-columns: calc(50% - 12px) !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .prizma-carousel-arrow {
+            display: none !important;
           }
         }
 

@@ -63,6 +63,42 @@ export default function Hero({ onExploreCatalog }) {
               <span style={{ color: '#d78c43', fontWeight: 600 }}>Studio, Kolhapur</span>
             </h1>
 
+            {/* Prizma-Style Collections CTA Button */}
+            <button
+              onClick={onExploreCatalog}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '13px 32px',
+                backgroundColor: '#d78c43',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '6px',
+                fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
+                fontSize: '12.5px',
+                fontWeight: 600,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                transition: 'all 0.25s ease',
+                boxShadow: '0 8px 24px rgba(215, 140, 67, 0.35)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#e59b52';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 12px 28px rgba(215, 140, 67, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#d78c43';
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(215, 140, 67, 0.35)';
+              }}
+              title="Explore Collections"
+            >
+              Collections
+              <ArrowRight size={15} />
+            </button>
           </div>
 
           {/* Centerpiece Column: Dramatic Hanging Royal Crystal Chandelier (Transparent Cutout, No Box/Card) */}
