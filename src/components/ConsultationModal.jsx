@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, Sparkles, CheckCircle2, User, Phone, MapPin } from 'lucide-react';
+import { X, CheckCircle2 } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);

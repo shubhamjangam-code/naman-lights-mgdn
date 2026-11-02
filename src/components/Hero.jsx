@@ -1,247 +1,269 @@
 import React from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, Sun, Star, Award } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-export default function Hero({ onExploreCatalog, onOpenSimulator }) {
+export default function Hero({ onExploreCatalog }) {
   return (
     <section style={{
       backgroundColor: 'transparent',
-      borderBottom: '1px solid var(--color-border)',
-      padding: 'var(--spacing-10) 0 var(--spacing-8) 0',
+      padding: '96px 0 60px 0',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center'
     }}>
-      {/* Subtle Luxury Ambient Radial Light Accents */}
+      {/* Immersive Warm Golden Ambient Backlight behind Chandelier */}
       <div style={{
         position: 'absolute',
-        top: '-15%',
-        right: '10%',
-        width: 'min(600px, 90vw)',
-        height: 'min(600px, 90vw)',
+        top: '12%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: 'min(860px, 98vw)',
+        height: 'min(800px, 92vw)',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(250, 249, 245, 0) 70%)',
-        pointerEvents: 'none'
+        background: 'radial-gradient(circle, rgba(215, 140, 67, 0.2) 0%, rgba(215, 140, 67, 0.05) 50%, transparent 72%)',
+        pointerEvents: 'none',
+        zIndex: 0
       }} />
 
-      <div style={{
-        position: 'absolute',
-        bottom: '-10%',
-        left: '-5%',
-        width: 'min(450px, 80vw)',
-        height: 'min(450px, 80vw)',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(108, 158, 46, 0.1) 0%, rgba(250, 249, 245, 0) 70%)',
-        pointerEvents: 'none'
-      }} />
-
-      <div className="container">
+      <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1.1fr 0.9fr',
-          gap: 'var(--spacing-8)',
+          gridTemplateColumns: '1.2fr 1.25fr 0.8fr',
+          gap: '32px',
           alignItems: 'center'
-        }} className="hero-grid">
+        }} className="hero-prizma-grid">
           
-          {/* Left Text Column */}
-          <div>
-            {/* Luxury Subtitle Tag */}
+          {/* Left Column: Short, Spacious & Attractive Headline with Collections CTA */}
+          <div style={{ zIndex: 2 }} className="hero-left-col">
+            {/* Eyebrow / Welcome Tag */}
             <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              backgroundColor: 'var(--color-gold-light)',
-              border: '1px solid var(--color-border-gold)',
-              borderRadius: '30px',
-              padding: '4px 14px',
-              marginBottom: 'var(--spacing-3)',
-              boxShadow: '0 2px 8px rgba(212, 175, 55, 0.14)'
+              fontSize: '11px',
+              fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
+              fontWeight: 600,
+              color: '#caa374',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              marginBottom: '16px'
             }}>
-              <Award size={13} color="var(--color-gold)" />
-              <span style={{
-                fontSize: '10.5px',
-                fontFamily: 'var(--font-body)',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                color: '#745618',
-                textTransform: 'uppercase'
-              }}>
-                Luxury Lighting Store · Kolhapur
-              </span>
+              \ WELCOME TO \
             </div>
 
-            {/* Main Luxury Title */}
-            <h1 className="display-title" style={{
-              fontSize: '38px',
-              lineHeight: 1.2,
-              marginBottom: 'var(--spacing-4)',
-              color: 'var(--color-text-high-contrast)',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 600
+            {/* Short, Clean 2-Line Headline */}
+            <h1 style={{
+              fontSize: 'clamp(34px, 3.8vw, 50px)',
+              fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
+              lineHeight: 1.18,
+              fontWeight: 500,
+              color: '#ffffff',
+              letterSpacing: '-0.02em',
+              marginBottom: '26px'
             }}>
-              Luxury Architectural & Decorative <em style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontWeight: 600, color: 'var(--color-gold-hover)' }}>Lighting</em>
+              Naman Lighting <br />
+              <span style={{ color: '#d78c43', fontWeight: 600 }}>Studio, Kolhapur</span>
             </h1>
-
-            {/* CTA Buttons */}
-            <div style={{
-              display: 'flex',
-              gap: 'var(--spacing-3)',
-              flexWrap: 'wrap',
-              marginBottom: 'var(--spacing-6)'
-            }}>
-              <button className="btn-gold" onClick={onExploreCatalog} style={{ padding: '12px 24px', fontSize: '13px' }}>
-                EXPLORE COLLECTION <ArrowRight size={14} />
-              </button>
-
-              <button className="btn-secondary" onClick={onOpenSimulator} style={{ padding: '12px 20px', fontSize: '13px' }}>
-                <Sparkles size={14} color="var(--color-gold)" /> LIGHT SIMULATOR
-              </button>
-            </div>
-
-            {/* Trust Badges Bar */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 'var(--spacing-3)',
-              borderTop: '1px solid var(--color-border)',
-              paddingTop: 'var(--spacing-4)'
-            }}>
-              <div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  color: 'var(--color-text-high-contrast)',
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700
-                }}>
-                  <Sun size={14} color="var(--color-gold)" /> 97+ High CRI
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                  Natural Optics
-                </div>
-              </div>
-
-              <div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  color: 'var(--color-text-high-contrast)',
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700
-                }}>
-                  <Sparkles size={14} color="var(--color-gold)" /> 2700K – 4000K
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                  Tunable Warmth
-                </div>
-              </div>
-
-              <div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  color: 'var(--color-text-high-contrast)',
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 700
-                }}>
-                  <ShieldCheck size={14} color="var(--color-gold)" /> 5-Year
-                </div>
-                <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
-                  Store Warranty
-                </div>
-              </div>
-            </div>
 
           </div>
 
-          {/* Right Showcase Card Column */}
-          <div>
-            <div style={{
-              backgroundColor: 'var(--color-bg-secondary)',
-              border: '1px solid var(--color-border-gold)',
-              borderRadius: '12px',
-              padding: '10px',
-              boxShadow: 'var(--shadow-card)',
-              position: 'relative'
-            }}>
-              <div style={{
+          {/* Centerpiece Column: Dramatic Hanging Royal Crystal Chandelier (Transparent Cutout, No Box/Card) */}
+          <div style={{
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1
+          }} className="hero-centerpiece-col">
+            
+            {/* Fine Golden Suspension Wire extending from the top of the viewport */}
+            <div 
+              style={{
+                width: '2px',
+                height: '140px',
+                background: 'linear-gradient(180deg, rgba(215, 140, 67, 0.2) 0%, rgba(215, 140, 67, 0.95) 100%)',
+                boxShadow: '0 0 10px rgba(215, 140, 67, 0.5)',
+                marginTop: '-50px',
+                marginBottom: '-2px',
                 position: 'relative',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                aspectRatio: '4/3',
-                backgroundColor: '#0a0d12'
-              }}>
-                <img 
-                  src="/images/chandelier.png" 
-                  alt="Aura Ring Crystal Chandelier Showcase"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
-                
-                {/* Floating Spec Tag with Gold Glassmorphism */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 'var(--spacing-2)',
-                  left: 'var(--spacing-2)',
-                  right: 'var(--spacing-2)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--color-border-gold)',
-                  borderRadius: 'var(--radius-subtle)',
-                  padding: '10px var(--spacing-3)',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.12)'
-                }}>
-                  <div>
-                    <div style={{ color: 'var(--color-text-high-contrast)', fontSize: '14.5px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                      Aura Ring Crystal Chandelier
-                    </div>
-                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '11px', marginTop: '1px' }}>
-                      4,200 lm · Dimmable · K9 Crystal
-                    </div>
-                  </div>
-                  <span style={{
-                    color: '#745618',
-                    backgroundColor: 'var(--color-gold-light)',
-                    border: '1px solid var(--color-border-gold)',
-                    borderRadius: '20px',
-                    padding: '3px 10px',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '10.5px',
-                    fontWeight: 700,
-                    letterSpacing: '0.03em',
-                    whiteSpace: 'nowrap'
-                  }}>
-                    IN-STORE EXCLUSIVE
-                  </span>
-                </div>
-              </div>
+                zIndex: 3
+              }} 
+              className="chandelier-suspension-wire" 
+            />
+
+            {/* Chandelier Cutout Container: Completely Borderless & Transparent */}
+            <div 
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '560px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              className="chandelier-visual-wrapper"
+            >
+              {/* Ethereal Warm Core Glow behind Chandelier */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '85%',
+                height: '85%',
+                background: 'radial-gradient(circle, rgba(215, 140, 67, 0.25) 0%, rgba(215, 140, 67, 0.06) 55%, transparent 75%)',
+                pointerEvents: 'none',
+                filter: 'blur(35px)',
+                zIndex: 0
+              }} />
+
+              {/* 100% Transparent PNG Chandelier Cutout with Natural Shadows */}
+              <img 
+                src="/images/hero_chandelier_transparent.png" 
+                alt="Naman Luxury Grand Crystal Chandelier & Royal Jhoomer"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '620px',
+                  objectFit: 'contain',
+                  display: 'block',
+                  position: 'relative',
+                  zIndex: 2,
+                  filter: 'drop-shadow(0 0 45px rgba(215, 140, 67, 0.42)) drop-shadow(0 25px 60px rgba(0, 0, 0, 0.95))'
+                }}
+                className="hero-chandelier-img"
+              />
+
+              {/* Warm Ground Light Spill directly beneath the Jhoomer */}
+              <div style={{
+                position: 'absolute',
+                bottom: '-10%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '85%',
+                height: '38%',
+                background: 'radial-gradient(ellipse at 50% 50%, rgba(215, 140, 67, 0.32) 0%, rgba(215, 140, 67, 0.08) 55%, transparent 80%)',
+                pointerEvents: 'none',
+                filter: 'blur(28px)',
+                zIndex: 1
+              }} />
             </div>
+          </div>
+
+          {/* Right Column: Featured Product Area (Name & Arrow Button matching Prizma) */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            paddingLeft: '20px',
+            zIndex: 2
+          }} className="hero-right-col">
+
+            {/* Product Title */}
+            <div style={{
+              fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
+              fontSize: 'clamp(20px, 2.2vw, 26px)',
+              fontWeight: 500,
+              color: '#ffffff',
+              lineHeight: 1.25,
+              marginBottom: '4px',
+              letterSpacing: '-0.015em'
+            }}>
+              "Solstice Cascade"
+            </div>
+            <div style={{
+              fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
+              fontSize: 'clamp(16px, 1.8vw, 22px)',
+              fontWeight: 400,
+              color: '#ffffff',
+              lineHeight: 1.25,
+              marginBottom: '26px'
+            }}>
+              Grand Crystal Jhoomer
+            </div>
+
+            {/* Interactive Circular Arrow Button */}
+            <button
+              onClick={onExploreCatalog}
+              style={{
+                width: '46px',
+                height: '46px',
+                borderRadius: '50%',
+                backgroundColor: 'transparent',
+                border: '1.5px solid rgba(215, 140, 67, 0.5)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#d78c43';
+                e.currentTarget.style.borderColor = '#d78c43';
+                const arrow = e.currentTarget.querySelector('svg');
+                if (arrow) arrow.setAttribute('stroke', '#ffffff');
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.borderColor = 'rgba(215, 140, 67, 0.5)';
+                const arrow = e.currentTarget.querySelector('svg');
+                if (arrow) arrow.setAttribute('stroke', '#d78c43');
+              }}
+              title="Explore Grand Jhoomer Collection"
+              aria-label="Explore Grand Jhoomer Collection"
+            >
+              <ArrowRight size={20} color="#d78c43" />
+            </button>
+
           </div>
 
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: var(--spacing-4) !important;
+        .hero-chandelier-img {
+          animation: chandelierSubtleFloat 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes chandelierSubtleFloat {
+          0% {
+            transform: translateY(0px);
           }
-          .display-title {
-            font-size: 24px !important;
-            line-height: 1.25 !important;
-            margin-bottom: var(--spacing-2) !important;
+          100% {
+            transform: translateY(-6px);
+          }
+        }
+
+        @media (max-width: 1080px) {
+          .hero-prizma-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 32px !important;
+          }
+          .hero-right-col {
+            grid-column: span 2;
+            padding-left: 0 !important;
+            margin-top: 10px;
+          }
+        }
+
+        @media (max-width: 800px) {
+          .hero-prizma-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .hero-centerpiece-col {
+            order: -1;
+            margin-bottom: 4px;
+          }
+          .chandelier-suspension-wire {
+            height: 55px !important;
+            margin-top: -15px !important;
+          }
+          .chandelier-visual-wrapper {
+            max-width: 360px !important;
+          }
+          .hero-right-col {
+            grid-column: span 1;
+            padding-left: 0 !important;
           }
         }
       `}</style>

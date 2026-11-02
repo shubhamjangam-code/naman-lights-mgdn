@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { X, Trash2, Plus, Minus, CheckCircle2, MapPin } from 'lucide-react';
 
 export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onClearCart }) {
   const [submitted, setSubmitted] = useState(false);
@@ -7,8 +7,6 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
   const [clientPhone, setClientPhone] = useState('');
 
   if (!isOpen) return null;
-
-  const totalAmount = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
   const handleSubmitQuote = (e) => {
     e.preventDefault();
@@ -25,8 +23,8 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
     <div style={{
       position: 'fixed',
       inset: 0,
-      backgroundColor: 'rgba(15, 23, 42, 0.6)',
-      backdropFilter: 'blur(6px)',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      backdropFilter: 'blur(8px)',
       zIndex: 200,
       display: 'flex',
       justifyContent: 'flex-end'
@@ -35,14 +33,14 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
     >
       <div 
         style={{
-          backgroundColor: 'var(--color-bg-secondary)',
-          borderLeft: '1px solid var(--color-border)',
+          backgroundColor: '#121217',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
           width: '100%',
           maxWidth: '440px',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          boxShadow: 'var(--shadow-card)',
+          boxShadow: '0 0 50px rgba(0, 0, 0, 0.8)',
           position: 'relative'
         }}
         onClick={(e) => e.stopPropagation()}
@@ -50,51 +48,62 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
       >
         {/* Header */}
         <div style={{
-          padding: 'var(--spacing-4)',
-          borderBottom: '1px solid var(--color-border)',
+          padding: '20px 24px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          backgroundColor: 'var(--color-bg-subtle)'
+          backgroundColor: '#0e0e13'
         }}>
           <div>
-            <h2 className="h1" style={{ color: 'var(--color-text-high-contrast)' }}>
-              SELECTION CART ({cartItems.reduce((a, b) => a + b.quantity, 0)})
+            <h2 style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-heading)',
+              color: '#ffffff',
+              fontWeight: 700,
+              letterSpacing: '0.04em'
+            }}>
+              SELECTION INQUIRY ({cartItems.reduce((a, b) => a + b.quantity, 0)})
             </h2>
-            <div style={{ fontSize: 'var(--font-size-small)', color: 'var(--color-text-secondary)' }}>
-              Naman Fancy Light Studio Inquiry
+            <div style={{ fontSize: '12px', color: '#d78c43', marginTop: '2px' }}>
+              Naman Fancy Light Atelier
             </div>
           </div>
           <button 
             onClick={onClose}
             style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-text-high-contrast)',
-              cursor: 'pointer',
-              padding: 'var(--spacing-1)'
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              color: '#ffffff',
+              borderRadius: '6px',
+              width: '32px',
+              height: '32px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
             }}
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 
         {/* Cart Body */}
         {submitted ? (
           <div style={{
-            padding: 'var(--spacing-8) var(--spacing-4)',
+            padding: '48px 24px',
             textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 'var(--spacing-3)'
+            gap: '16px'
           }}>
-            <CheckCircle2 size={48} color="var(--color-primary)" />
-            <h3 className="h1" style={{ color: 'var(--color-text-high-contrast)' }}>
-              QUOTE REQUEST SUBMITTED!
+            <CheckCircle2 size={52} color="#d78c43" />
+            <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#ffffff' }}>
+              INQUIRY RECEIVED!
             </h3>
-            <p style={{ color: 'var(--color-text)', fontSize: 'var(--font-size-body)' }}>
-              Thank you, <strong style={{ color: 'var(--color-text-high-contrast)' }}>{clientName}</strong>. Our senior lighting consultant will contact you at <strong style={{ color: 'var(--color-primary)' }}>{clientPhone}</strong> with architectural trade pricing and CAD layout assistance.
+            <p style={{ color: '#cbd5e1', fontSize: '14px', lineHeight: 1.6 }}>
+              Thank you, <strong style={{ color: '#ffffff' }}>{clientName}</strong>. Our Kolhapur showroom team will connect with you at <strong style={{ color: '#d78c43' }}>{clientPhone}</strong> with architectural fixture specifications and showroom appointment details.
             </p>
           </div>
         ) : (
@@ -102,21 +111,21 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
             <div style={{
               flex: 1,
               overflowY: 'auto',
-              padding: 'var(--spacing-4)',
+              padding: '20px 24px',
               display: 'flex',
               flexDirection: 'column',
-              gap: 'var(--spacing-3)'
+              gap: '14px'
             }}>
               {cartItems.length === 0 ? (
                 <div style={{
                   textAlign: 'center',
-                  padding: 'var(--spacing-8) 0',
-                  color: 'var(--color-text-secondary)'
+                  padding: '60px 0',
+                  color: '#94a3b8'
                 }}>
-                  Your selection cart is currently empty.
-                  <div style={{ marginTop: 'var(--spacing-3)' }}>
-                    <button className="btn-outline-accent" onClick={onClose}>
-                      BROWSE FIXTURES
+                  Your selection inquiry cart is currently empty.
+                  <div style={{ marginTop: '18px' }}>
+                    <button className="btn-amber" onClick={onClose} style={{ padding: '10px 20px', fontSize: '12.5px' }}>
+                      EXPLORE COLLECTIONS
                     </button>
                   </div>
                 </div>
@@ -125,12 +134,12 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                   <div 
                     key={item.id}
                     style={{
-                      backgroundColor: 'var(--color-bg-subtle)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-subtle)',
-                      padding: 'var(--spacing-2)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      borderRadius: '10px',
+                      padding: '12px',
                       display: 'flex',
-                      gap: 'var(--spacing-3)',
+                      gap: '14px',
                       alignItems: 'center'
                     }}
                   >
@@ -138,64 +147,65 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                       src={item.image} 
                       alt={item.name}
                       style={{
-                        width: '64px',
-                        height: '64px',
+                        width: '60px',
+                        height: '60px',
                         objectFit: 'cover',
-                        borderRadius: 'var(--radius-subtle)',
-                        backgroundColor: '#0f172a'
+                        borderRadius: '8px',
+                        backgroundColor: '#0a0a0e',
+                        flexShrink: 0
                       }}
                     />
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{
-                        fontSize: 'var(--font-size-h2)',
-                        color: 'var(--color-text-high-contrast)',
+                        fontSize: '13.5px',
+                        color: '#ffffff',
                         fontWeight: 700,
-                        lineHeight: 1.2
+                        lineHeight: 1.3,
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
                       }}>
                         {item.name}
                       </div>
-                      <div style={{ fontSize: '11px', color: '#745618', fontWeight: 700, margin: '2px 0' }}>
-                        In-Store Exclusive
-                      </div>
 
                       {/* Quantity Controls */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginTop: '4px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '6px' }}>
                         <div style={{
                           display: 'flex',
                           alignItems: 'center',
-                          border: '1px solid var(--color-border)',
-                          borderRadius: 'var(--radius-subtle)',
-                          backgroundColor: 'var(--color-bg-secondary)'
+                          border: '1px solid rgba(255, 255, 255, 0.15)',
+                          borderRadius: '6px',
+                          backgroundColor: '#1b1b22'
                         }}>
                           <button
                             onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                             style={{
-                              background: 'none', border: 'none', color: 'var(--color-text-high-contrast)',
-                              padding: '2px 6px', cursor: 'pointer'
+                              background: 'none', border: 'none', color: '#ffffff',
+                              padding: '4px 8px', cursor: 'pointer'
                             }}
                           >
-                            <Minus size={10} />
+                            <Minus size={11} />
                           </button>
-                          <span style={{ fontSize: '11px', color: 'var(--color-text-high-contrast)', fontWeight: 600, padding: '0 6px' }}>
+                          <span style={{ fontSize: '11px', color: '#ffffff', fontWeight: 600, padding: '0 6px' }}>
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                             style={{
-                              background: 'none', border: 'none', color: 'var(--color-text-high-contrast)',
-                              padding: '2px 6px', cursor: 'pointer'
+                              background: 'none', border: 'none', color: '#ffffff',
+                              padding: '4px 8px', cursor: 'pointer'
                             }}
                           >
-                            <Plus size={10} />
+                            <Plus size={11} />
                           </button>
                         </div>
 
                         <button
                           onClick={() => onRemoveItem(item.id)}
-                          style={{ background: 'none', border: 'none', color: 'var(--color-text-secondary)', cursor: 'pointer' }}
+                          style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
                           title="Remove item"
                         >
-                          <Trash2 size={13} />
+                          <Trash2 size={14} />
                         </button>
                       </div>
                     </div>
@@ -204,38 +214,38 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
               )}
             </div>
 
-            {/* Footer Location Info & Inquiry Form */}
+            {/* Footer Location & Form */}
             {cartItems.length > 0 && (
               <div style={{
-                padding: 'var(--spacing-4)',
-                borderTop: '1px solid var(--color-border)',
-                backgroundColor: 'var(--color-bg-subtle)'
+                padding: '20px 24px',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                backgroundColor: '#0e0e13'
               }}>
                 <div style={{
-                  backgroundColor: 'var(--color-gold-light)',
-                  border: '1px solid var(--color-border-gold)',
-                  borderRadius: 'var(--radius-subtle)',
+                  backgroundColor: 'rgba(215, 140, 67, 0.15)',
+                  border: '1px solid rgba(215, 140, 67, 0.35)',
+                  borderRadius: '8px',
                   padding: '10px 14px',
-                  marginBottom: 'var(--spacing-3)',
-                  color: '#745618',
-                  fontSize: '12px',
-                  fontWeight: 700,
+                  marginBottom: '16px',
+                  color: '#e2e8f0',
+                  fontSize: '11.5px',
+                  lineHeight: 1.4,
                   textAlign: 'center'
                 }}>
-                  🏬 All products are available exclusively for purchase at our Kolhapur Showroom.
+                  📍 Luminaires are available for live demonstration and direct purchase at our Kolhapur Showroom.
                 </div>
 
                 <a 
                   href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold" 
-                  style={{ width: '100%', textDecoration: 'none', justifyContent: 'center', marginBottom: 'var(--spacing-2)' }}
+                  className="btn-amber" 
+                  style={{ width: '100%', textDecoration: 'none', justifyContent: 'center', marginBottom: '14px', padding: '12px' }}
                 >
-                  VISIT SHOP TO BUY <ArrowRight size={14} />
+                  <MapPin size={14} /> VISIT SHOWROOM TO BUY
                 </a>
 
-                <form onSubmit={handleSubmitQuote} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
+                <form onSubmit={handleSubmitQuote} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <input 
                     type="text" 
                     placeholder="Your Name *"
@@ -251,7 +261,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                     required
                   />
                   
-                  <button type="submit" className="btn-secondary" style={{ width: '100%', marginTop: '2px' }}>
+                  <button type="submit" className="btn-secondary" style={{ width: '100%', padding: '12px' }}>
                     SUBMIT INQUIRY
                   </button>
                 </form>

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Phone } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import LightingSimulator from './components/LightingSimulator';
+import StudioAbout from './components/StudioAbout';
+import SeamlessOffering from './components/SeamlessOffering';
+import ProjectShowcase from './components/ProjectShowcase';
+import ServicesGrid from './components/ServicesGrid';
 import ProductCatalog from './components/ProductCatalog';
 import ProductModal from './components/ProductModal';
 import CartDrawer from './components/CartDrawer';
@@ -17,7 +20,7 @@ export default function App() {
     try {
       const saved = localStorage.getItem('nfl_cart');
       return saved ? JSON.parse(saved) : [];
-    } catch (e) {
+    } catch {
       return [];
     }
   });
@@ -29,7 +32,7 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('nfl_cart', JSON.stringify(cartItems));
-    } catch (e) {}
+    } catch {}
   }, [cartItems]);
 
   const handleAddToCart = (product) => {
@@ -61,9 +64,22 @@ export default function App() {
 
   const cartTotalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+  const scrollToCatalog = () => {
+    const catalogEl = document.getElementById('catalog');
+    if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div style={{ backgroundColor: 'transparent', minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', width: '100%', overflowX: 'hidden' }}>
-      {/* 3D Animated Background Layer */}
+    <div style={{
+      backgroundColor: 'transparent',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      width: '100%',
+      overflowX: 'hidden'
+    }}>
+      {/* 3D Animated Ambient Dark Studio Background */}
       <Background3D />
 
       {/* Header Bar */}
@@ -78,19 +94,30 @@ export default function App() {
 
       {/* Main Content Area */}
       <main style={{ flex: 1, position: 'relative', zIndex: 1, width: '100%' }}>
+        {/* 1. Hero Section (Screenshot 1 Reference) */}
         <Hero
-          onExploreCatalog={() => {
-            const catalogEl = document.getElementById('catalog');
-            if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
-          }}
-          onOpenSimulator={() => {
-            const simEl = document.getElementById('ambiance');
-            if (simEl) simEl.scrollIntoView({ behavior: 'smooth' });
-          }}
+          onExploreCatalog={scrollToCatalog}
         />
 
-        <LightingSimulator />
+        {/* 2. Studio About & Statistics Section (Screenshot 2 Reference) */}
+        <StudioAbout />
 
+        {/* 3. Features & Seamless Offering Section (Screenshot 3 Reference) */}
+        <SeamlessOffering onExploreCatalog={scrollToCatalog} />
+
+        {/* 4. Curated Work & Projects Showcase (Screenshot 4 Reference) */}
+        <ProjectShowcase onSelectCategory={(cat) => {
+          setActiveCategory(cat);
+          setSearchQuery('');
+        }} />
+
+        {/* 5. Services & Architectural Categories Grid (Screenshot 5 Reference) */}
+        <ServicesGrid onSelectCategory={(cat) => {
+          setActiveCategory(cat);
+          setSearchQuery('');
+        }} />
+
+        {/* 6. Product Catalog */}
         <ProductCatalog
           products={PRODUCTS}
           activeCategory={activeCategory}
@@ -110,8 +137,7 @@ export default function App() {
         onSelectCategory={(cat) => {
           setActiveCategory(cat);
           setSearchQuery('');
-          const catalogEl = document.getElementById('catalog');
-          if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+          scrollToCatalog();
         }}
       />
 
@@ -144,9 +170,9 @@ export default function App() {
         <a
           href="tel:+919876543210"
           style={{
-            backgroundColor: '#ffffff',
-            color: 'var(--color-text-high-contrast)',
-            border: '1px solid var(--color-border-gold)',
+            backgroundColor: 'rgba(21, 21, 27, 0.92)',
+            color: '#ffffff',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '24px',
             padding: '10px 14px',
             fontSize: '11px',
@@ -154,13 +180,13 @@ export default function App() {
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
-            boxShadow: '0 6px 18px rgba(15, 23, 42, 0.18)',
-            backdropFilter: 'blur(8px)'
+            gap: '6px',
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(10px)'
           }}
           aria-label="Call Store"
         >
-          <Phone size={13} color="var(--color-gold)" /> Call Store
+          <Phone size={13} color="#d78c43" /> Call Store
         </a>
 
         <a
@@ -168,9 +194,9 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            background: 'linear-gradient(135deg, #d4af37 0%, #aa8214 100%)',
+            background: 'var(--color-amber-gradient)',
             color: '#ffffff',
-            border: '1px solid rgba(255, 255, 255, 0.4)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
             borderRadius: '24px',
             padding: '10px 16px',
             fontSize: '11px',
@@ -178,8 +204,8 @@ export default function App() {
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
-            gap: '5px',
-            boxShadow: '0 6px 18px rgba(212, 175, 55, 0.35)'
+            gap: '6px',
+            boxShadow: '0 8px 24px rgba(215, 140, 67, 0.4)'
           }}
           aria-label="Visit Store Map"
         >

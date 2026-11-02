@@ -51,11 +51,11 @@ export default function JhoomerLogo({ size = 48, className = "" }) {
             <stop offset="100%" stopColor="#996515" />
           </linearGradient>
 
-          {/* Deep Royal Midnight Blue Inner Background */}
+          {/* Deep Obsidian Inner Background */}
           <radialGradient id={darkBgId} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#141f36" />
-            <stop offset="65%" stopColor="#0a101d" />
-            <stop offset="100%" stopColor="#05080e" />
+            <stop offset="0%" stopColor="#181820" />
+            <stop offset="65%" stopColor="#0d0d11" />
+            <stop offset="100%" stopColor="#08080a" />
           </radialGradient>
 
           {/* Soft Bulb Glow Filter */}
