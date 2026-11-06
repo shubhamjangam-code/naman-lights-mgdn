@@ -1,19 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 export default function Hero() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    // If image is already cached and loaded when mounting (e.g. after refresh with preloading)
-    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
-      setImageLoaded(true);
-    }
-    // Safety fallback so elements always show even on slow/offline connections
-    const timer = setTimeout(() => setImageLoaded(true), 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section style={{
       backgroundColor: 'transparent',
@@ -149,7 +136,7 @@ export default function Hero() {
                 zIndex: 0
               }} />
 
-              {/* Crystal Twinkle Sparkles - Synchronized with Chandelier Readiness */}
+              {/* Crystal Twinkle Sparkles */}
               <div className="sparkle-point sparkle-1" style={{
                 position: 'absolute',
                 top: '32%',
@@ -157,9 +144,7 @@ export default function Hero() {
                 color: '#ffe5b4',
                 fontSize: '18px',
                 zIndex: 4,
-                pointerEvents: 'none',
-                opacity: imageLoaded ? 1 : 0,
-                transition: 'opacity 0.4s ease-in'
+                pointerEvents: 'none'
               }}>✦</div>
 
               <div className="sparkle-point sparkle-2" style={{
@@ -169,9 +154,7 @@ export default function Hero() {
                 color: '#fff1d6',
                 fontSize: '15px',
                 zIndex: 4,
-                pointerEvents: 'none',
-                opacity: imageLoaded ? 1 : 0,
-                transition: 'opacity 0.4s ease-in'
+                pointerEvents: 'none'
               }}>✦</div>
 
               <div className="sparkle-point sparkle-3" style={{
@@ -181,12 +164,10 @@ export default function Hero() {
                 color: '#ffd29d',
                 fontSize: '20px',
                 zIndex: 4,
-                pointerEvents: 'none',
-                opacity: imageLoaded ? 1 : 0,
-                transition: 'opacity 0.4s ease-in'
+                pointerEvents: 'none'
               }}>✦</div>
 
-              {/* Grand Crystal Chandelier with WebP + PNG Fallback, Preload & Zero Flash */}
+              {/* Grand Crystal Chandelier (Instant Hardware-Accelerated Paint) */}
               <picture style={{
                 width: '100%',
                 display: 'flex',
@@ -195,7 +176,6 @@ export default function Hero() {
               }}>
                 <source srcSet="/images/hero_chandelier_transparent.webp" type="image/webp" />
                 <img 
-                  ref={imgRef}
                   src="/images/hero_chandelier_transparent.png" 
                   alt="Naman Luxury Grand Crystal Chandelier & Royal Jhoomer"
                   width="1024"
@@ -203,8 +183,6 @@ export default function Hero() {
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"
-                  onLoad={() => setImageLoaded(true)}
-                  onError={() => setImageLoaded(true)}
                   style={{
                     width: '100%',
                     height: 'auto',
@@ -213,9 +191,7 @@ export default function Hero() {
                     display: 'block',
                     position: 'relative',
                     zIndex: 2,
-                    filter: 'drop-shadow(0 0 50px rgba(215, 140, 67, 0.45)) drop-shadow(0 30px 65px rgba(0, 0, 0, 0.95))',
-                    opacity: imageLoaded ? 1 : 0,
-                    transition: 'opacity 0.25s ease-out'
+                    filter: 'drop-shadow(0 0 50px rgba(215, 140, 67, 0.45)) drop-shadow(0 30px 65px rgba(0, 0, 0, 0.95))'
                   }}
                   className="hero-chandelier-img"
                 />
@@ -242,23 +218,23 @@ export default function Hero() {
 
       <style>{`
         .hero-chandelier-img {
-          animation: chandelierSubtleFloat 6s ease-in-out infinite alternate;
+          will-change: transform;
+          transform: translateZ(0);
+          animation: chandelierSubtleFloat 5s ease-in-out infinite alternate;
         }
 
         @keyframes chandelierSubtleFloat {
           0% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-8px) rotate(0.4deg);
+            transform: translateY(0px) translateZ(0);
           }
           100% {
-            transform: translateY(0px) rotate(0deg);
+            transform: translateY(-8px) translateZ(0);
           }
         }
 
         .sparkle-point {
-          text-shadow: 0 0 10px rgba(255, 230, 180, 0.9), 0 0 20px rgba(215, 140, 67, 0.7);
+          text-shadow: 0 0 10px rgba(255, 230, 180, 0.8), 0 0 20px rgba(215, 140, 67, 0.6);
+          will-change: opacity;
         }
 
         .sparkle-1 {
@@ -275,12 +251,10 @@ export default function Hero() {
 
         @keyframes sparkleGlitter {
           0%, 100% {
-            opacity: 0.15;
-            transform: scale(0.7);
+            opacity: 0.2;
           }
           50% {
-            opacity: 1;
-            transform: scale(1.25);
+            opacity: 0.95;
           }
         }
 
