@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    // If image is already cached and loaded when mounting (e.g. after refresh with preloading)
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+      setImageLoaded(true);
+    }
+    // Safety fallback so elements always show even on slow/offline connections
+    const timer = setTimeout(() => setImageLoaded(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section style={{
       backgroundColor: 'transparent',
@@ -136,7 +149,7 @@ export default function Hero() {
                 zIndex: 0
               }} />
 
-              {/* Crystal Twinkle Sparkles */}
+              {/* Crystal Twinkle Sparkles - Synchronized with Chandelier Readiness */}
               <div className="sparkle-point sparkle-1" style={{
                 position: 'absolute',
                 top: '32%',
@@ -144,7 +157,9 @@ export default function Hero() {
                 color: '#ffe5b4',
                 fontSize: '18px',
                 zIndex: 4,
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease-in'
               }}>✦</div>
 
               <div className="sparkle-point sparkle-2" style={{
@@ -154,7 +169,9 @@ export default function Hero() {
                 color: '#fff1d6',
                 fontSize: '15px',
                 zIndex: 4,
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease-in'
               }}>✦</div>
 
               <div className="sparkle-point sparkle-3" style={{
@@ -164,25 +181,45 @@ export default function Hero() {
                 color: '#ffd29d',
                 fontSize: '20px',
                 zIndex: 4,
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease-in'
               }}>✦</div>
 
-              {/* Grand Crystal Chandelier Image */}
-              <img 
-                src="/images/hero_chandelier_transparent.png" 
-                alt="Naman Luxury Grand Crystal Chandelier & Royal Jhoomer"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxHeight: '530px',
-                  objectFit: 'contain',
-                  display: 'block',
-                  position: 'relative',
-                  zIndex: 2,
-                  filter: 'drop-shadow(0 0 50px rgba(215, 140, 67, 0.45)) drop-shadow(0 30px 65px rgba(0, 0, 0, 0.95))'
-                }}
-                className="hero-chandelier-img"
-              />
+              {/* Grand Crystal Chandelier with WebP + PNG Fallback, Preload & Zero Flash */}
+              <picture style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <source srcSet="/images/hero_chandelier_transparent.webp" type="image/webp" />
+                <img 
+                  ref={imgRef}
+                  src="/images/hero_chandelier_transparent.png" 
+                  alt="Naman Luxury Grand Crystal Chandelier & Royal Jhoomer"
+                  width="1024"
+                  height="1024"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => setImageLoaded(true)}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    maxHeight: '530px',
+                    objectFit: 'contain',
+                    display: 'block',
+                    position: 'relative',
+                    zIndex: 2,
+                    filter: 'drop-shadow(0 0 50px rgba(215, 140, 67, 0.45)) drop-shadow(0 30px 65px rgba(0, 0, 0, 0.95))',
+                    opacity: imageLoaded ? 1 : 0,
+                    transition: 'opacity 0.25s ease-out'
+                  }}
+                  className="hero-chandelier-img"
+                />
+              </picture>
 
               {/* Ground Light Glow beneath Jhoomer */}
               <div style={{
