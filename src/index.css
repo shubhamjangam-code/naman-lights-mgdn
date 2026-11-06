@@ -225,7 +225,7 @@ input::placeholder, textarea::placeholder {
 /* Section */
 .section {
   padding: var(--spacing-10) 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: none;
   position: relative;
   overflow: hidden;
 }

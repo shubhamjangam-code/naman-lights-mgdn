@@ -47,7 +47,8 @@ export default function ProjectShowcase({ onSelectCategory }) {
 
   return (
     <section id="projects" className="section" style={{
-      backgroundColor: '#0a0a0d',
+      backgroundColor: 'transparent',
+      border: 'none',
       padding: '80px 0'
     }}>
       <div className="container">

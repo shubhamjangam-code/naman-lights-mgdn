@@ -1,27 +1,38 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
-export default function Hero({ onExploreCatalog }) {
+export default function Hero() {
   return (
     <section style={{
       backgroundColor: 'transparent',
-      padding: '96px 0 60px 0',
+      padding: '76px 0 40px 0',
       position: 'relative',
       overflow: 'hidden',
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center'
     }}>
-      {/* Immersive Warm Golden Ambient Backlight behind Chandelier */}
+      {/* Dynamic Ambient Warm Golden Glow behind Right Side (Jhoomer Area) */}
       <div style={{
         position: 'absolute',
-        top: '12%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: 'min(860px, 98vw)',
-        height: 'min(800px, 92vw)',
+        top: '6%',
+        right: '4%',
+        width: 'min(720px, 80vw)',
+        height: 'min(720px, 80vw)',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(215, 140, 67, 0.2) 0%, rgba(215, 140, 67, 0.05) 50%, transparent 72%)',
+        background: 'radial-gradient(circle, rgba(215, 140, 67, 0.22) 0%, rgba(215, 140, 67, 0.06) 50%, transparent 72%)',
+        pointerEvents: 'none',
+        zIndex: 0,
+        filter: 'blur(30px)'
+      }} />
+
+      {/* Subtle Top Ambient Fill */}
+      <div style={{
+        position: 'absolute',
+        top: '0',
+        left: '20%',
+        width: '500px',
+        height: '350px',
+        background: 'radial-gradient(ellipse at 50% 0%, rgba(215, 140, 67, 0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -29,96 +40,69 @@ export default function Hero({ onExploreCatalog }) {
       <div className="container" style={{ position: 'relative', zIndex: 1, width: '100%' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1.2fr 1.25fr 0.8fr',
-          gap: '32px',
+          gridTemplateColumns: '1.05fr 1.15fr',
+          gap: '48px',
           alignItems: 'center'
-        }} className="hero-prizma-grid">
+        }} className="hero-grid-layout">
           
-          {/* Left Column: Short, Spacious & Attractive Headline with Collections CTA */}
-          <div style={{ zIndex: 2 }} className="hero-left-col">
+          {/* Left Column: Brand & Title */}
+          <div style={{ zIndex: 2 }} className="hero-content-col">
             {/* Eyebrow / Welcome Tag */}
             <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
               fontSize: '11px',
               fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
-              fontWeight: 600,
-              color: '#caa374',
+              fontWeight: 700,
+              color: '#d78c43',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              marginBottom: '16px'
+              marginBottom: '20px'
             }}>
-              \ WELCOME TO \
+              <span>\ WELCOME TO \</span>
             </div>
 
-            {/* Short, Clean 2-Line Headline */}
+            {/* Display Headline */}
             <h1 style={{
-              fontSize: 'clamp(34px, 3.8vw, 50px)',
+              fontSize: 'clamp(38px, 4.6vw, 62px)',
               fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
-              lineHeight: 1.18,
-              fontWeight: 500,
+              lineHeight: 1.14,
+              fontWeight: 600,
               color: '#ffffff',
-              letterSpacing: '-0.02em',
-              marginBottom: '26px'
+              letterSpacing: '-0.025em'
             }}>
               Naman Lighting <br />
-              <span style={{ color: '#d78c43', fontWeight: 600 }}>Studio, Kolhapur</span>
+              <span style={{ 
+                background: 'linear-gradient(135deg, #f5b775 0%, #d78c43 50%, #b86b24 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontWeight: 700 
+              }}>
+                Studio, Kolhapur
+              </span>
             </h1>
-
-            {/* Prizma-Style Collections CTA Button */}
-            <button
-              onClick={onExploreCatalog}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '13px 32px',
-                backgroundColor: '#d78c43',
-                color: '#ffffff',
-                border: 'none',
-                borderRadius: '6px',
-                fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
-                fontSize: '12.5px',
-                fontWeight: 600,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                boxShadow: '0 8px 24px rgba(215, 140, 67, 0.35)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#e59b52';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 12px 28px rgba(215, 140, 67, 0.5)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#d78c43';
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(215, 140, 67, 0.35)';
-              }}
-              title="Explore Collections"
-            >
-              Collections
-              <ArrowRight size={15} />
-            </button>
           </div>
 
-          {/* Centerpiece Column: Dramatic Hanging Royal Crystal Chandelier (Transparent Cutout, No Box/Card) */}
+          {/* Right Column: Stunning Royal Chandelier */}
           <div style={{
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 1
-          }} className="hero-centerpiece-col">
+            zIndex: 1,
+            marginTop: '-45px'
+          }} className="hero-chandelier-col">
             
-            {/* Fine Golden Suspension Wire extending from the top of the viewport */}
+            {/* Fine Golden Suspension Wire extending from the top */}
             <div 
               style={{
                 width: '2px',
-                height: '140px',
-                background: 'linear-gradient(180deg, rgba(215, 140, 67, 0.2) 0%, rgba(215, 140, 67, 0.95) 100%)',
-                boxShadow: '0 0 10px rgba(215, 140, 67, 0.5)',
-                marginTop: '-50px',
+                height: '65px',
+                background: 'linear-gradient(180deg, rgba(215, 140, 67, 0.15) 0%, rgba(215, 140, 67, 0.95) 100%)',
+                boxShadow: '0 0 12px rgba(215, 140, 67, 0.6)',
+                marginTop: '-30px',
                 marginBottom: '-2px',
                 position: 'relative',
                 zIndex: 3
@@ -126,7 +110,7 @@ export default function Hero({ onExploreCatalog }) {
               className="chandelier-suspension-wire" 
             />
 
-            {/* Chandelier Cutout Container: Completely Borderless & Transparent */}
+            {/* Chandelier Visual Stage */}
             <div 
               style={{
                 position: 'relative',
@@ -138,118 +122,82 @@ export default function Hero({ onExploreCatalog }) {
               }}
               className="chandelier-visual-wrapper"
             >
-              {/* Ethereal Warm Core Glow behind Chandelier */}
+              {/* Warm Golden Halo directly behind the Chandelier */}
               <div style={{
                 position: 'absolute',
-                top: '50%',
+                top: '46%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '85%',
-                height: '85%',
-                background: 'radial-gradient(circle, rgba(215, 140, 67, 0.25) 0%, rgba(215, 140, 67, 0.06) 55%, transparent 75%)',
+                width: '92%',
+                height: '92%',
+                background: 'radial-gradient(circle, rgba(215, 140, 67, 0.3) 0%, rgba(215, 140, 67, 0.08) 52%, transparent 74%)',
                 pointerEvents: 'none',
-                filter: 'blur(35px)',
+                filter: 'blur(36px)',
                 zIndex: 0
               }} />
 
-              {/* 100% Transparent PNG Chandelier Cutout with Natural Shadows */}
+              {/* Crystal Twinkle Sparkles */}
+              <div className="sparkle-point sparkle-1" style={{
+                position: 'absolute',
+                top: '32%',
+                left: '26%',
+                color: '#ffe5b4',
+                fontSize: '18px',
+                zIndex: 4,
+                pointerEvents: 'none'
+              }}>✦</div>
+
+              <div className="sparkle-point sparkle-2" style={{
+                position: 'absolute',
+                top: '48%',
+                right: '22%',
+                color: '#fff1d6',
+                fontSize: '15px',
+                zIndex: 4,
+                pointerEvents: 'none'
+              }}>✦</div>
+
+              <div className="sparkle-point sparkle-3" style={{
+                position: 'absolute',
+                top: '68%',
+                left: '42%',
+                color: '#ffd29d',
+                fontSize: '20px',
+                zIndex: 4,
+                pointerEvents: 'none'
+              }}>✦</div>
+
+              {/* Grand Crystal Chandelier Image */}
               <img 
                 src="/images/hero_chandelier_transparent.png" 
                 alt="Naman Luxury Grand Crystal Chandelier & Royal Jhoomer"
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: '620px',
+                  maxHeight: '530px',
                   objectFit: 'contain',
                   display: 'block',
                   position: 'relative',
                   zIndex: 2,
-                  filter: 'drop-shadow(0 0 45px rgba(215, 140, 67, 0.42)) drop-shadow(0 25px 60px rgba(0, 0, 0, 0.95))'
+                  filter: 'drop-shadow(0 0 50px rgba(215, 140, 67, 0.45)) drop-shadow(0 30px 65px rgba(0, 0, 0, 0.95))'
                 }}
                 className="hero-chandelier-img"
               />
 
-              {/* Warm Ground Light Spill directly beneath the Jhoomer */}
+              {/* Ground Light Glow beneath Jhoomer */}
               <div style={{
                 position: 'absolute',
-                bottom: '-10%',
+                bottom: '-6%',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 width: '85%',
-                height: '38%',
-                background: 'radial-gradient(ellipse at 50% 50%, rgba(215, 140, 67, 0.32) 0%, rgba(215, 140, 67, 0.08) 55%, transparent 80%)',
+                height: '35%',
+                background: 'radial-gradient(ellipse at 50% 50%, rgba(215, 140, 67, 0.35) 0%, rgba(215, 140, 67, 0.08) 55%, transparent 80%)',
                 pointerEvents: 'none',
-                filter: 'blur(28px)',
+                filter: 'blur(30px)',
                 zIndex: 1
               }} />
             </div>
-          </div>
-
-          {/* Right Column: Featured Product Area (Name & Arrow Button matching Prizma) */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            paddingLeft: '20px',
-            zIndex: 2
-          }} className="hero-right-col">
-
-            {/* Product Title */}
-            <div style={{
-              fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
-              fontSize: 'clamp(20px, 2.2vw, 26px)',
-              fontWeight: 500,
-              color: '#ffffff',
-              lineHeight: 1.25,
-              marginBottom: '4px',
-              letterSpacing: '-0.015em'
-            }}>
-              "Solstice Cascade"
-            </div>
-            <div style={{
-              fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
-              fontSize: 'clamp(16px, 1.8vw, 22px)',
-              fontWeight: 400,
-              color: '#ffffff',
-              lineHeight: 1.25,
-              marginBottom: '26px'
-            }}>
-              Grand Crystal Jhoomer
-            </div>
-
-            {/* Interactive Circular Arrow Button */}
-            <button
-              onClick={onExploreCatalog}
-              style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: '50%',
-                backgroundColor: 'transparent',
-                border: '1.5px solid rgba(215, 140, 67, 0.5)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#d78c43';
-                e.currentTarget.style.borderColor = '#d78c43';
-                const arrow = e.currentTarget.querySelector('svg');
-                if (arrow) arrow.setAttribute('stroke', '#ffffff');
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.borderColor = 'rgba(215, 140, 67, 0.5)';
-                const arrow = e.currentTarget.querySelector('svg');
-                if (arrow) arrow.setAttribute('stroke', '#d78c43');
-              }}
-              title="Explore Grand Jhoomer Collection"
-              aria-label="Explore Grand Jhoomer Collection"
-            >
-              <ArrowRight size={20} color="#d78c43" />
-            </button>
-
           </div>
 
         </div>
@@ -262,44 +210,78 @@ export default function Hero({ onExploreCatalog }) {
 
         @keyframes chandelierSubtleFloat {
           0% {
-            transform: translateY(0px);
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-8px) rotate(0.4deg);
           }
           100% {
-            transform: translateY(-6px);
+            transform: translateY(0px) rotate(0deg);
           }
         }
 
-        @media (max-width: 1080px) {
-          .hero-prizma-grid {
+        .sparkle-point {
+          text-shadow: 0 0 10px rgba(255, 230, 180, 0.9), 0 0 20px rgba(215, 140, 67, 0.7);
+        }
+
+        .sparkle-1 {
+          animation: sparkleGlitter 3.5s ease-in-out infinite;
+        }
+
+        .sparkle-2 {
+          animation: sparkleGlitter 4s ease-in-out infinite 1.2s;
+        }
+
+        .sparkle-3 {
+          animation: sparkleGlitter 3.8s ease-in-out infinite 2.1s;
+        }
+
+        @keyframes sparkleGlitter {
+          0%, 100% {
+            opacity: 0.15;
+            transform: scale(0.7);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.25);
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .hero-grid-layout {
             grid-template-columns: 1fr 1fr !important;
-            gap: 32px !important;
+            gap: 36px !important;
           }
-          .hero-right-col {
-            grid-column: span 2;
-            padding-left: 0 !important;
-            margin-top: 10px;
+          .chandelier-visual-wrapper {
+            max-width: 440px !important;
           }
         }
 
-        @media (max-width: 800px) {
-          .hero-prizma-grid {
+        @media (max-width: 860px) {
+          .hero-grid-layout {
             grid-template-columns: 1fr !important;
-            gap: 24px !important;
+            gap: 28px !important;
+            text-align: center;
           }
-          .hero-centerpiece-col {
+          .hero-content-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-content-col h1 {
+            text-align: center;
+          }
+          .hero-chandelier-col {
             order: -1;
-            margin-bottom: 4px;
+            margin-top: 0 !important;
+            margin-bottom: 8px;
           }
           .chandelier-suspension-wire {
-            height: 55px !important;
+            height: 45px !important;
             margin-top: -15px !important;
           }
           .chandelier-visual-wrapper {
-            max-width: 360px !important;
-          }
-          .hero-right-col {
-            grid-column: span 1;
-            padding-left: 0 !important;
+            max-width: 320px !important;
           }
         }
       `}</style>

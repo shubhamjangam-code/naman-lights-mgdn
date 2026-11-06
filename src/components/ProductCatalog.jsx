@@ -50,7 +50,8 @@ export default function ProductCatalog({
 
   return (
     <section id="catalog" className="section" style={{
-      backgroundColor: '#0c0c10',
+      backgroundColor: 'transparent',
+      border: 'none',
       padding: '80px 0 100px 0',
       position: 'relative'
     }}>

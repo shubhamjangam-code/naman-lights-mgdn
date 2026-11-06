@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Phone } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import StudioAbout from './components/StudioAbout';
 import SeamlessOffering from './components/SeamlessOffering';
 import ProjectShowcase from './components/ProjectShowcase';
 import ServicesGrid from './components/ServicesGrid';
@@ -98,9 +97,6 @@ export default function App() {
         <Hero
           onExploreCatalog={scrollToCatalog}
         />
-
-        {/* 2. Studio About & Statistics Section (Screenshot 2 Reference) */}
-        <StudioAbout />
 
         {/* 3. Features & Seamless Offering Section (Screenshot 3 Reference) */}
         <SeamlessOffering onExploreCatalog={scrollToCatalog} />

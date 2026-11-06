@@ -5,7 +5,6 @@ import { PRODUCTS } from '../data/products';
 export default function Header({ 
   cartCount, 
   onOpenCart, 
-  activeCategory, 
   onSelectCategory,
   searchQuery,
   onSearchChange
@@ -110,24 +109,6 @@ export default function Header({
             alignItems: 'center'
           }} className="desktop-only">
             <a 
-              href="#about" 
-              style={{
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
-                color: '#d1d5db',
-                fontWeight: 400,
-                transition: 'color 0.2s ease',
-                letterSpacing: '0.01em',
-                padding: '4px 0'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#d78c43'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#d1d5db'}
-            >
-              About us
-            </a>
-
-            <a 
               href="#services" 
               style={{
                 textDecoration: 'none',
@@ -169,31 +150,17 @@ export default function Header({
                 textDecoration: 'none',
                 fontSize: '14px',
                 fontFamily: "'Plus Jakarta Sans', var(--font-body), sans-serif",
-                color: activeCategory === 'all' ? '#d78c43' : '#d1d5db',
-                fontWeight: activeCategory === 'all' ? 600 : 400,
-                transition: 'all 0.2s ease',
+                color: '#d1d5db',
+                fontWeight: 400,
+                transition: 'color 0.2s ease',
                 letterSpacing: '0.01em',
-                position: 'relative',
                 padding: '4px 0'
               }}
               onClick={() => onSelectCategory('all')}
               onMouseEnter={(e) => e.currentTarget.style.color = '#d78c43'}
-              onMouseLeave={(e) => {
-                if (activeCategory !== 'all') e.currentTarget.style.color = '#d1d5db';
-              }}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#d1d5db'}
             >
               Collections
-              {activeCategory === 'all' && (
-                <span style={{
-                  position: 'absolute',
-                  bottom: '-4px',
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  backgroundColor: '#d78c43',
-                  borderRadius: '2px'
-                }} />
-              )}
             </a>
 
             <a 
@@ -425,13 +392,6 @@ export default function Header({
 
           <div style={{ height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.08)', margin: '4px 0' }} />
 
-          <a 
-            href="#about" 
-            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            About Us
-          </a>
           <a 
             href="#catalog" 
             style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}

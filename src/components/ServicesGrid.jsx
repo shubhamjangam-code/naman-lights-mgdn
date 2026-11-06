@@ -148,7 +148,8 @@ export default function ServicesGrid({ onSelectCategory }) {
 
   return (
     <section id="services" className="section" style={{
-      backgroundColor: '#0c0c10',
+      backgroundColor: 'transparent',
+      border: 'none',
       position: 'relative',
       overflow: 'hidden',
       padding: '70px 0'
