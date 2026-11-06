@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section style={{
+    <section className="hero-section" style={{
       backgroundColor: 'transparent',
       padding: '76px 0 40px 0',
       position: 'relative',
@@ -269,9 +269,13 @@ export default function Hero() {
         }
 
         @media (max-width: 860px) {
+          .hero-section {
+            min-height: auto !important;
+            padding: 90px 0 40px 0 !important;
+          }
           .hero-grid-layout {
             grid-template-columns: 1fr !important;
-            gap: 28px !important;
+            gap: 24px !important;
             text-align: center;
           }
           .hero-content-col {
@@ -281,18 +285,45 @@ export default function Hero() {
           }
           .hero-content-col h1 {
             text-align: center;
+            font-size: clamp(28px, 6.5vw, 42px) !important;
           }
           .hero-chandelier-col {
             order: -1;
             margin-top: 0 !important;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
           }
           .chandelier-suspension-wire {
-            height: 45px !important;
-            margin-top: -15px !important;
+            height: 38px !important;
+            margin-top: -10px !important;
           }
           .chandelier-visual-wrapper {
-            max-width: 320px !important;
+            max-width: 300px !important;
+          }
+          .hero-chandelier-img {
+            max-height: 340px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-section {
+            padding: 76px 0 30px 0 !important;
+          }
+          .hero-grid-layout {
+            gap: 16px !important;
+          }
+          .hero-content-col h1 {
+            font-size: clamp(24px, 7.2vw, 32px) !important;
+            line-height: 1.18 !important;
+          }
+          .chandelier-suspension-wire {
+            height: 24px !important;
+            margin-top: -6px !important;
+          }
+          .chandelier-visual-wrapper {
+            max-width: 250px !important;
+          }
+          .hero-chandelier-img {
+            max-height: 260px !important;
           }
         }
       `}</style>

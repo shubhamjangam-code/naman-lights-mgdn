@@ -26,7 +26,7 @@ export default function SeamlessOffering({ onExploreCatalog }) {
   ];
 
   return (
-    <section id="features" className="section" style={{
+    <section id="features" className="section features-section" style={{
       backgroundColor: 'transparent',
       border: 'none',
       position: 'relative',
@@ -105,21 +105,24 @@ export default function SeamlessOffering({ onExploreCatalog }) {
               </div>
 
               {/* Bottom Ambient Tag */}
-              <div style={{
-                position: 'absolute',
-                bottom: '16px',
-                left: '16px',
-                right: '16px',
-                backgroundColor: 'rgba(15, 15, 20, 0.88)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(215, 140, 67, 0.3)',
-                borderRadius: '12px',
-                padding: '12px 18px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-              }}>
+              <div 
+                className="feature-bottom-overlay"
+                style={{
+                  position: 'absolute',
+                  bottom: '16px',
+                  left: '16px',
+                  right: '16px',
+                  backgroundColor: 'rgba(15, 15, 20, 0.88)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(215, 140, 67, 0.3)',
+                  borderRadius: '12px',
+                  padding: '12px 18px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
                 <div>
                   <div style={{ fontSize: '13.5px', fontWeight: 600, color: '#ffffff' }}>
                     Halo Ring Ambient Sculpture
@@ -296,15 +299,37 @@ export default function SeamlessOffering({ onExploreCatalog }) {
         }
 
         @media (max-width: 960px) {
+          .features-section {
+            padding: 60px 0 !important;
+          }
           .features-grid {
             grid-template-columns: 1fr !important;
             gap: 36px !important;
           }
         }
 
+        @media (max-width: 640px) {
+          .features-section {
+            padding: 40px 0 !important;
+          }
+        }
+
         @media (max-width: 540px) {
           .feature-cards-grid {
             grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .feature-bottom-overlay {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+            padding: 10px 12px !important;
+            bottom: 10px !important;
+            left: 10px !important;
+            right: 10px !important;
           }
         }
       `}</style>

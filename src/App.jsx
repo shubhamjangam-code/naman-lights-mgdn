@@ -154,9 +154,9 @@ export default function App() {
       />
 
       {/* Mobile Floating Quick Contact & Map Pill */}
-      <div className="mobile-only" style={{
+      <div className="mobile-only mobile-floating-actions" style={{
         position: 'fixed',
-        bottom: '20px',
+        bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
         right: '16px',
         zIndex: 95,
         display: 'flex',
@@ -166,11 +166,11 @@ export default function App() {
         <a
           href="tel:+919876543210"
           style={{
-            backgroundColor: 'rgba(21, 21, 27, 0.92)',
+            backgroundColor: 'rgba(21, 21, 27, 0.94)',
             color: '#ffffff',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '24px',
-            padding: '10px 14px',
+            padding: '9px 13px',
             fontSize: '11px',
             fontWeight: 700,
             textDecoration: 'none',
@@ -194,7 +194,7 @@ export default function App() {
             color: '#ffffff',
             border: '1px solid rgba(255, 255, 255, 0.3)',
             borderRadius: '24px',
-            padding: '10px 16px',
+            padding: '9px 15px',
             fontSize: '11px',
             fontWeight: 700,
             textDecoration: 'none',

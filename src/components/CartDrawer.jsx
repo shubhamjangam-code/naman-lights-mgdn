@@ -38,16 +38,17 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           width: '100%',
           maxWidth: '440px',
           height: '100%',
+          maxHeight: '100dvh',
           display: 'flex',
           flexDirection: 'column',
           boxShadow: '0 0 50px rgba(0, 0, 0, 0.8)',
           position: 'relative'
         }}
         onClick={(e) => e.stopPropagation()}
-        className="animate-fade-in"
+        className="animate-fade-in cart-drawer-panel"
       >
         {/* Header */}
-        <div style={{
+        <div className="cart-drawer-header" style={{
           padding: '20px 24px',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
@@ -108,7 +109,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           </div>
         ) : (
           <>
-            <div style={{
+            <div className="cart-drawer-body" style={{
               flex: 1,
               overflowY: 'auto',
               padding: '20px 24px',
@@ -216,7 +217,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
 
             {/* Footer Location & Form */}
             {cartItems.length > 0 && (
-              <div style={{
+              <div className="cart-drawer-footer" style={{
                 padding: '20px 24px',
                 borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                 backgroundColor: '#0e0e13'
@@ -270,6 +271,23 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           </>
         )}
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .cart-drawer-panel {
+            max-width: 100vw !important;
+          }
+          .cart-drawer-header {
+            padding: 16px 16px !important;
+          }
+          .cart-drawer-body {
+            padding: 16px 16px !important;
+          }
+          .cart-drawer-footer {
+            padding: 16px 16px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

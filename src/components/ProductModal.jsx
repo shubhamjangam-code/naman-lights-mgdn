@@ -5,18 +5,20 @@ export default function ProductModal({ product, onClose }) {
   if (!product) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',
-      backdropFilter: 'blur(12px)',
-      zIndex: 200,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px'
-    }}
-    onClick={onClose}
+    <div 
+      className="product-modal-backdrop"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        backdropFilter: 'blur(12px)',
+        zIndex: 200,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '20px'
+      }}
+      onClick={onClose}
     >
       <div 
         style={{
@@ -32,11 +34,12 @@ export default function ProductModal({ product, onClose }) {
           padding: '28px'
         }}
         onClick={(e) => e.stopPropagation()}
-        className="animate-fade-in"
+        className="product-modal-card animate-fade-in"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
+          className="product-modal-close"
           style={{
             position: 'absolute',
             top: '18px',
@@ -225,12 +228,12 @@ export default function ProductModal({ product, onClose }) {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div className="modal-action-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <a 
                 href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-amber" 
+                className="btn-amber modal-btn" 
                 style={{ flex: 1, textDecoration: 'none', textAlign: 'center', justifyContent: 'center', padding: '12px' }}
               >
                 <MapPin size={15} /> VISIT SHOP TO BUY
@@ -238,8 +241,8 @@ export default function ProductModal({ product, onClose }) {
 
               <a 
                 href="tel:+919876543210"
-                className="btn-secondary"
-                style={{ textDecoration: 'none', padding: '12px 18px' }}
+                className="btn-secondary modal-btn"
+                style={{ textDecoration: 'none', padding: '12px 18px', textAlign: 'center', justifyContent: 'center' }}
               >
                 <Phone size={15} color="#d78c43" /> CALL STORE
               </a>
@@ -253,6 +256,31 @@ export default function ProductModal({ product, onClose }) {
         @media (max-width: 700px) {
           .modal-grid {
             grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .product-modal-backdrop {
+            padding: 10px !important;
+          }
+          .product-modal-card {
+            padding: 20px 16px !important;
+            max-height: 94vh !important;
+          }
+          .product-modal-close {
+            top: 12px !important;
+            right: 12px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-action-buttons {
+            flex-direction: column !important;
+          }
+          .modal-btn {
+            width: 100% !important;
+            flex: none !important;
           }
         }
       `}</style>

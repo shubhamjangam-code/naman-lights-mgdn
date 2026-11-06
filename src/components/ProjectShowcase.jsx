@@ -46,7 +46,7 @@ export default function ProjectShowcase({ onSelectCategory }) {
   };
 
   return (
-    <section id="projects" className="section" style={{
+    <section id="projects" className="section projects-section" style={{
       backgroundColor: 'transparent',
       border: 'none',
       padding: '80px 0'
@@ -74,6 +74,7 @@ export default function ProjectShowcase({ onSelectCategory }) {
             <div
               key={proj.id}
               onClick={() => handleCardClick(proj.category)}
+              className="project-card"
               style={{
                 position: 'relative',
                 borderRadius: '14px',
@@ -200,9 +201,19 @@ export default function ProjectShowcase({ onSelectCategory }) {
           }
         }
 
+        @media (max-width: 640px) {
+          .projects-section {
+            padding: 40px 0 !important;
+          }
+        }
+
         @media (max-width: 580px) {
           .projects-grid {
             grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          .project-card {
+            aspect-ratio: 16/11 !important;
           }
         }
       `}</style>

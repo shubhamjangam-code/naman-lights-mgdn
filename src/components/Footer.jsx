@@ -21,7 +21,7 @@ export default function Footer({ onSelectCategory }) {
     }}>
       
       {/* Showroom Section with Exact Google Maps Address */}
-      <div id="showroom" className="container" style={{ marginBottom: '80px' }}>
+      <div id="showroom" className="container showroom-container" style={{ marginBottom: '80px' }}>
         <div style={{
           backgroundColor: '#111116',
           border: '1px solid rgba(215, 140, 67, 0.3)',
@@ -32,7 +32,7 @@ export default function Footer({ onSelectCategory }) {
           gap: '40px',
           alignItems: 'center',
           boxShadow: '0 20px 50px rgba(0, 0, 0, 0.7)'
-        }} className="showroom-grid">
+        }} className="showroom-grid showroom-card">
 
           <div>
             <div className="eyebrow-tag">\ SHOWROOM LOCATION \</div>
@@ -94,12 +94,12 @@ export default function Footer({ onSelectCategory }) {
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div className="showroom-cta-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <a 
                 href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-amber"
+                className="btn-amber showroom-btn"
                 style={{ padding: '12px 22px', fontSize: '13px' }}
               >
                 <MapPin size={15} /> GET DIRECTIONS
@@ -107,7 +107,7 @@ export default function Footer({ onSelectCategory }) {
 
               <a 
                 href="tel:+919876543210"
-                className="btn-secondary"
+                className="btn-secondary showroom-btn"
                 style={{ padding: '12px 20px', fontSize: '13px' }}
               >
                 <Phone size={15} color="#d78c43" /> CALL STUDIO
@@ -129,22 +129,25 @@ export default function Footer({ onSelectCategory }) {
               alt="Naman Fancy Light Showroom Display" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-            <div style={{
-              position: 'absolute',
-              bottom: '12px',
-              left: '12px',
-              right: '12px',
-              backgroundColor: 'rgba(10, 10, 14, 0.9)',
-              backdropFilter: 'blur(8px)',
-              padding: '10px 14px',
-              borderRadius: '8px',
-              border: '1px solid rgba(215, 140, 67, 0.3)',
-              color: '#ffffff',
-              fontSize: '12px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
+            <div 
+              className="showroom-img-badge"
+              style={{
+                position: 'absolute',
+                bottom: '12px',
+                left: '12px',
+                right: '12px',
+                backgroundColor: 'rgba(10, 10, 14, 0.9)',
+                backdropFilter: 'blur(8px)',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                border: '1px solid rgba(215, 140, 67, 0.3)',
+                color: '#ffffff',
+                fontSize: '12px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
               <span>📍 Main Road, Gandhi Nagar, Kolhapur</span>
               <a 
                 href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA" 
@@ -268,6 +271,33 @@ export default function Footer({ onSelectCategory }) {
           .showroom-grid, .footer-links-grid {
             grid-template-columns: 1fr !important;
             gap: 28px !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .showroom-container {
+            margin-bottom: 40px !important;
+          }
+          .showroom-card {
+            padding: 20px 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .showroom-cta-buttons {
+            flex-direction: column !important;
+          }
+          .showroom-btn {
+            width: 100% !important;
+            text-align: center !important;
+            justify-content: center !important;
+          }
+          .showroom-img-badge {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+            padding: 8px 10px !important;
+            font-size: 11px !important;
           }
         }
       `}</style>

@@ -49,7 +49,7 @@ export default function ProductCatalog({
   };
 
   return (
-    <section id="catalog" className="section" style={{
+    <section id="catalog" className="section catalog-section" style={{
       backgroundColor: 'transparent',
       border: 'none',
       padding: '80px 0 100px 0',
@@ -58,7 +58,7 @@ export default function ProductCatalog({
       <div className="container">
         
         {/* Clean Minimal Section Header */}
-        <div style={{
+        <div className="catalog-header-wrap" style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
@@ -103,10 +103,11 @@ export default function ProductCatalog({
         </div>
 
         {/* Minimal Category Filter Tabs */}
-        <div style={{
+        <div className="catalog-filter-bar" style={{
           display: 'flex',
           gap: '8px',
           overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
           paddingBottom: '16px',
           marginBottom: '32px',
           scrollbarWidth: 'none'
@@ -301,20 +302,33 @@ export default function ProductCatalog({
         }
 
         @media (max-width: 768px) {
+          .prizma-carousel-arrow {
+            display: none !important;
+          }
           .prizma-carousel-track {
             grid-auto-columns: calc(50% - 12px) !important;
           }
         }
 
         @media (max-width: 640px) {
-          .prizma-carousel-arrow {
-            display: none !important;
+          .catalog-section {
+            padding: 40px 0 60px 0 !important;
+          }
+          .catalog-header-wrap {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+            margin-bottom: 24px !important;
+          }
+          .catalog-filter-bar {
+            margin-bottom: 20px !important;
           }
         }
 
         @media (max-width: 480px) {
           .prizma-carousel-track {
-            grid-auto-columns: 85% !important;
+            grid-auto-columns: 82% !important;
+            gap: 14px !important;
           }
         }
       `}</style>

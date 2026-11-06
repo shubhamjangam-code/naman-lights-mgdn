@@ -82,9 +82,9 @@ export default function Header({
           alignItems: 'center',
           flexShrink: 0
         }}>
-          <span style={{
+          <span className="brand-logo-text" style={{
             fontFamily: "'Plus Jakarta Sans', var(--font-heading), sans-serif",
-            fontSize: 'clamp(22px, 2.5vw, 29px)',
+            fontSize: 'clamp(20px, 2.5vw, 29px)',
             fontWeight: 500,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -372,50 +372,57 @@ export default function Header({
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div style={{
-          backgroundColor: '#0f0f14',
-          borderBottom: '1px solid rgba(215, 140, 67, 0.3)',
-          padding: '16px',
+          backgroundColor: 'rgba(15, 15, 20, 0.98)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(215, 140, 67, 0.35)',
+          padding: '18px 16px 22px 16px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '12px',
-          animation: 'fadeIn 0.2s ease-out forwards'
+          gap: '8px',
+          animation: 'fadeIn 0.22s ease-out forwards',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.7)'
         }} className="mobile-only">
           <a
             href="https://maps.app.goo.gl/RjGAaEzUckZq9aVXA"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-amber"
-            style={{ width: '100%', justifyContent: 'center', padding: '12px' }}
+            style={{ width: '100%', justifyContent: 'center', padding: '13px', fontSize: '12px' }}
           >
             <MapPin size={16} /> VISIT SHOWROOM (MAP)
           </a>
 
-          <div style={{ height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.08)', margin: '4px 0' }} />
+          <div style={{ height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.08)', margin: '6px 0' }} />
 
           <a 
             href="#catalog" 
-            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}
+            className="mobile-nav-link"
+            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '15px', padding: '11px 14px', fontWeight: 600, borderRadius: '8px', transition: 'background 0.2s ease' }}
             onClick={() => { setMobileMenuOpen(false); onSelectCategory('all'); }}
           >
             Collections
           </a>
           <a 
             href="#services" 
-            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}
+            className="mobile-nav-link"
+            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '15px', padding: '11px 14px', fontWeight: 600, borderRadius: '8px', transition: 'background 0.2s ease' }}
             onClick={() => setMobileMenuOpen(false)}
           >
             Services & Fixtures
           </a>
           <a 
             href="#projects" 
-            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}
+            className="mobile-nav-link"
+            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '15px', padding: '11px 14px', fontWeight: 600, borderRadius: '8px', transition: 'background 0.2s ease' }}
             onClick={() => setMobileMenuOpen(false)}
           >
             Projects Showcase
           </a>
           <a 
             href="#showroom" 
-            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '14.5px', padding: '8px 0', fontWeight: 600 }}
+            className="mobile-nav-link"
+            style={{ color: '#ffffff', textDecoration: 'none', fontSize: '15px', padding: '11px 14px', fontWeight: 600, borderRadius: '8px', transition: 'background 0.2s ease' }}
             onClick={() => setMobileMenuOpen(false)}
           >
             Showroom Location
@@ -424,19 +431,39 @@ export default function Header({
       )}
 
       <style>{`
+        .mobile-nav-link:active, .mobile-nav-link:hover {
+          background-color: rgba(215, 140, 67, 0.15) !important;
+          color: #d78c43 !important;
+        }
+
         @media (max-width: 980px) {
           .desktop-only { display: none !important; }
 
           .header-main-container {
-            padding-left: 12px !important;
-            padding-right: 12px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
           }
         }
 
         @media (max-width: 640px) {
           .header-main-container {
-            padding-left: 12px !important;
-            padding-right: 12px !important;
+            height: 62px !important;
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+            gap: 12px !important;
+          }
+          .brand-logo-text {
+            font-size: 19px !important;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .brand-logo-text {
+            font-size: 17px !important;
+          }
+          .header-main-container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
           }
         }
 

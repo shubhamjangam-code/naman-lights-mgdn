@@ -147,7 +147,7 @@ export default function ServicesGrid({ onSelectCategory }) {
   };
 
   return (
-    <section id="services" className="section" style={{
+    <section id="services" className="section services-section" style={{
       backgroundColor: 'transparent',
       border: 'none',
       position: 'relative',
@@ -298,9 +298,26 @@ export default function ServicesGrid({ onSelectCategory }) {
           }
         }
 
+        @media (max-width: 768px) {
+          .watermark-ghost-text {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .services-section {
+            padding: 40px 0 !important;
+          }
+          .services-header-grid {
+            gap: 14px !important;
+            margin-bottom: 28px !important;
+          }
+        }
+
         @media (max-width: 540px) {
           .categories-grid {
             grid-template-columns: 1fr !important;
+            row-gap: 20px !important;
           }
         }
       `}</style>
